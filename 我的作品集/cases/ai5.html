@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 设计需求整理</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1677FF',
+                            purple: '#8D54E9',
+                            light: '#E6F4FF',
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 8px 30px -6px rgba(73, 117, 230, 0.12)',
+                        'icon': '0 2px 10px 0 rgba(0,0,0,0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html,
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            /* 匹配参考图的极淡蓝灰背景 */
+            background-color: #F8F9FC;
+        }
+        /* 卡片头部渐变蓝 */
+        .card-header-gradient {
+            background: linear-gradient(90deg, #1677FF 0%, #4096FF 100%);
+        }
+        /* 连接线动画增强视觉效果 */
+        .connector-line {
+            stroke-dasharray: 4;
+            animation: dash 20s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -100; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex justify-center py-12 px-6">
+
+    <!-- 主画布区 -->
+    <div class="max-w-[1280px] w-full relative z-10">
+        
+        <!-- ================= 头部区域 ================= -->
+        <header class="mb-12 border-b border-gray-200 pb-6 flex justify-between items-end relative">
+            <h1 class="text-[32px] font-black tracking-tight text-text-main flex items-baseline gap-3">
+                设计需求整理
+                <span class="text-xl font-bold text-gray-300 uppercase tracking-widest">/ Design Requirement</span>
+            </h1>
+            
+            <!-- 右侧下载/操作图标 -->
+            <div class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-text-desc hover:bg-gray-50 cursor-pointer transition-colors shadow-icon">
+                <i data-lucide="arrow-down" class="w-5 h-5"></i>
+            </div>
+        </header>
+
+        <!-- ================= 表格与卡片映射区 ================= -->
+        <div class="w-full flex flex-col">
+            
+            <!-- 表头说明 -->
+            <div class="flex gap-12 items-end mb-4">
+                <div class="flex-1 text-sm font-bold text-text-desc">产品需求整理</div>
+                <div class="w-[380px] text-sm font-bold text-text-desc">设计需求整理</div>
+            </div>
+
+            <!-- Table Header -->
+            <div class="flex gap-12 items-stretch">
+                <div class="flex-1 flex bg-[#F4F5F8] border border-gray-200 rounded-t-xl">
+                    <div class="w-1/4 p-4 font-bold text-text-main border-r border-gray-200 text-[14px]">需求名称</div>
+                    <div class="w-[60%] p-4 font-bold text-text-main border-r border-gray-200 text-[14px]">需求详情</div>
+                    <div class="w-[15%] p-4 font-bold text-text-main text-center text-[14px]">优先级</div>
+                </div>
+                <div class="w-[380px]"></div> <!-- Spacer for cards header -->
+            </div>
+
+            <!-- ================= Row 1: AI机器人 ================= -->
+            <div class="flex gap-12 items-stretch">
+                <!-- 左侧表格行 -->
+                <div class="flex-1 flex bg-white border-x border-b border-gray-200 relative group transition-colors hover:bg-blue-50/30">
+                    <div class="w-1/4 p-5 text-[14px] text-text-main font-medium border-r border-gray-200 flex items-center">智能对话大模型</div>
+                    <div class="w-[60%] p-5 text-[13px] text-text-desc border-r border-gray-200 flex items-center leading-relaxed">配置 AI 客服机器人的基础人设、对话策略以及超轮次自动转人工阈值</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-red-50 text-red-500 rounded text-[13px]">P0</span></div>
+
+                    <!-- 连接线 SVG -->
+                    <svg class="absolute right-[-48px] top-1/2 -translate-y-1/2 w-[48px] h-4 z-10" overflow="visible">
+                        <circle cx="0" cy="8" r="4" fill="white" stroke="#1677FF" stroke-width="2"/>
+                        <path d="M 4 8 L 44 8" stroke="#1677FF" stroke-width="1.5" fill="none" opacity="0.5" class="connector-line"/>
+                        <polygon points="42,5 48,8 42,11" fill="#1677FF" opacity="0.6"/>
+                    </svg>
+                </div>
+
+                <!-- 右侧设计卡片 -->
+                <div class="w-[380px] py-2">
+                    <div class="bg-white rounded-[12px] shadow-card border border-gray-100 overflow-hidden h-full flex flex-col hover:-translate-y-0.5 transition-transform">
+                        <div class="card-header-gradient px-4 py-3 flex justify-between items-center text-white">
+                            <h4 class="font-bold text-[15px] tracking-wide">AI机器人配置中心</h4>
+                            <span class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded backdrop-blur-sm">P0</span>
+                        </div>
+                        <div class="p-2 flex-1 flex flex-col justify-center">
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">1. 机器人创建与列表页</span>
+                                <span class="text-[11px] text-gray-400 font-medium">1 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">2. 基础人设与兜底配置</span>
+                                <span class="text-[11px] text-gray-400 font-medium">2 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">3. 多轮对话策略面板</span>
+                                <span class="text-[11px] text-gray-400 font-medium">1 page</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Row 2: RAG知识库 ================= -->
+            <div class="flex gap-12 items-stretch">
+                <!-- 左侧表格行 -->
+                <div class="flex-1 flex bg-white border-x border-b border-gray-200 relative group transition-colors hover:bg-blue-50/30">
+                    <div class="w-1/4 p-5 text-[14px] text-text-main font-medium border-r border-gray-200 flex items-center">RAG 知识库管理</div>
+                    <div class="w-[60%] p-5 text-[13px] text-text-desc border-r border-gray-200 flex items-center leading-relaxed">支持上传企业产品文档，系统自动解析处理并进行 QA 对拆解与向量训练</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-red-50 text-red-500 rounded text-[13px]">P0</span></div>
+
+                    <!-- 连接线 SVG -->
+                    <svg class="absolute right-[-48px] top-1/2 -translate-y-1/2 w-[48px] h-4 z-10" overflow="visible">
+                        <circle cx="0" cy="8" r="4" fill="white" stroke="#1677FF" stroke-width="2"/>
+                        <path d="M 4 8 L 44 8" stroke="#1677FF" stroke-width="1.5" fill="none" opacity="0.5" class="connector-line"/>
+                        <polygon points="42,5 48,8 42,11" fill="#1677FF" opacity="0.6"/>
+                    </svg>
+                </div>
+
+                <!-- 右侧设计卡片 -->
+                <div class="w-[380px] py-2">
+                    <div class="bg-white rounded-[12px] shadow-card border border-gray-100 overflow-hidden h-full flex flex-col hover:-translate-y-0.5 transition-transform">
+                        <div class="card-header-gradient px-4 py-3 flex justify-between items-center text-white">
+                            <h4 class="font-bold text-[15px] tracking-wide">知识沉淀与训练库</h4>
+                            <span class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded backdrop-blur-sm">P0</span>
+                        </div>
+                        <div class="p-2 flex-1 flex flex-col justify-center">
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">1. 知识库分类列表页</span>
+                                <span class="text-[11px] text-gray-400 font-medium">1 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">2. 文档上传与解析中心</span>
+                                <span class="text-[11px] text-gray-400 font-medium">2 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">3. QA 问答对编辑与审核</span>
+                                <span class="text-[11px] text-gray-400 font-medium">1 page</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Row 3: 工作台 ================= -->
+            <div class="flex gap-12 items-stretch">
+                <!-- 左侧表格行 -->
+                <div class="flex-1 flex bg-white border-x border-b border-gray-200 relative group transition-colors hover:bg-blue-50/30">
+                    <div class="w-1/4 p-5 text-[14px] text-text-main font-medium border-r border-gray-200 flex items-center">全渠道工作台</div>
+                    <div class="w-[60%] p-5 text-[13px] text-text-desc border-r border-gray-200 flex items-center leading-relaxed">聚合微信、官网等渠道会话，提供客户画像面板与 AI 侧边栏实时回复推荐</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-orange-50 text-orange-500 rounded text-[13px]">P1</span></div>
+
+                    <!-- 连接线 SVG -->
+                    <svg class="absolute right-[-48px] top-1/2 -translate-y-1/2 w-[48px] h-4 z-10" overflow="visible">
+                        <circle cx="0" cy="8" r="4" fill="white" stroke="#1677FF" stroke-width="2"/>
+                        <path d="M 4 8 L 44 8" stroke="#1677FF" stroke-width="1.5" fill="none" opacity="0.5" class="connector-line"/>
+                        <polygon points="42,5 48,8 42,11" fill="#1677FF" opacity="0.6"/>
+                    </svg>
+                </div>
+
+                <!-- 右侧设计卡片 -->
+                <div class="w-[380px] py-2">
+                    <div class="bg-white rounded-[12px] shadow-card border border-gray-100 overflow-hidden h-full flex flex-col hover:-translate-y-0.5 transition-transform">
+                        <div class="card-header-gradient px-4 py-3 flex justify-between items-center text-white">
+                            <h4 class="font-bold text-[15px] tracking-wide">人工客服工作台</h4>
+                            <span class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded backdrop-blur-sm">P1</span>
+                        </div>
+                        <div class="p-2 flex-1 flex flex-col justify-center">
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">1. 多渠道会话聚合架构</span>
+                                <span class="text-[11px] text-gray-400 font-medium">1 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">2. 聊天互动与快捷组件</span>
+                                <span class="text-[11px] text-gray-400 font-medium">3 page</span>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-3 border-b border-gray-100 border-dashed last:border-0 hover:bg-blue-50/50 rounded-md transition-colors">
+                                <span class="text-[13px] text-text-main font-medium">3. 用户画像与 AI 辅助侧边栏</span>
+                                <span class="text-[11px] text-gray-400 font-medium">2 page</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Row 4: 数据大盘 (无卡片，次级优先级) ================= -->
+            <div class="flex gap-12 items-stretch opacity-80">
+                <div class="flex-1 flex bg-white border-x border-b border-gray-200 relative group">
+                    <div class="w-1/4 p-5 text-[14px] text-text-desc border-r border-gray-200 flex items-center">数据洞察大盘</div>
+                    <div class="w-[60%] p-5 text-[13px] text-text-desc border-r border-gray-200 flex items-center leading-relaxed">提供核心运营指标可视化监控，包含 AI 解决率、转人工分布、坐席服务绩效考核等</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-orange-50 text-orange-500 rounded text-[13px]">P1</span></div>
+                </div>
+                <div class="w-[380px]"></div>
+            </div>
+
+            <!-- ================= Row 5: 工单系统 (无卡片，置灰边缘) ================= -->
+            <div class="flex gap-12 items-stretch opacity-60">
+                <div class="flex-1 flex bg-white border-x border-b border-gray-200 rounded-b-xl relative group">
+                    <div class="w-1/4 p-5 text-[14px] text-gray-400 border-r border-gray-200 flex items-center">跨部门工单系统</div>
+                    <div class="w-[60%] p-5 text-[13px] text-gray-400 border-r border-gray-200 flex items-center leading-relaxed">一线客服无法解决的复杂售后异常，需支持一键生成流转工单交由技术/售后跟进</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-gray-100 text-gray-500 rounded text-[13px]">P2</span></div>
+                </div>
+                <div class="w-[380px]"></div>
+            </div>
+
+            <!-- ================= Row 6: 账号管理 (淡出效果) ================= -->
+            <div class="flex gap-12 items-stretch opacity-30 mt-[-1px]">
+                <div class="flex-1 flex bg-gradient-to-b from-white to-transparent border-x border-b border-gray-200 border-b-transparent rounded-b-xl relative group">
+                    <div class="w-1/4 p-5 text-[14px] text-gray-300 flex items-center">平台基础设置</div>
+                    <div class="w-[60%] p-5 text-[13px] text-gray-300 flex items-center leading-relaxed">SaaS 租户架构下的企业账号、子账号权限管理与计费套餐配置</div>
+                    <div class="w-[15%] p-5 font-bold text-center flex items-center justify-center"><span class="px-2.5 py-0.5 bg-gray-100 text-gray-500 rounded text-[13px]">P2</span></div>
+                </div>
+                <div class="w-[380px]"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

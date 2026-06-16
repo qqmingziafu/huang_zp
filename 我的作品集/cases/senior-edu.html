@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>网上老年大学 APP - 案例详情</title>
+  <link rel="preload" as="image" href="../image/APP1-1.jpg" />
+  <link rel="preload" as="image" href="../image/APP1-2.jpg" />
+  <link rel="preload" as="image" href="../image/app-3.jpg" />
+  <link rel="preload" as="image" href="../image/APP1-4.jpg" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #f7f2ef;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      color: #17212d;
+    }
+
+    .case-page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #17212d;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(230, 106, 64, 0.14);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .case-section {
+      max-width: 1920px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 24px 80px rgba(117, 64, 36, 0.1);
+    }
+
+    .case-section img,
+    .case-section video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .case-section video.case-video {
+      height: auto;
+      background: #fff;
+    }
+
+    .hero-carousel {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #fff url("../image/APP1-1.jpg") center / cover no-repeat;
+      isolation: isolate;
+    }
+
+    .hero-carousel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: hero-slide 12s infinite;
+      animation-fill-mode: none;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      will-change: opacity;
+    }
+
+    .hero-carousel img:nth-child(1) {
+      opacity: 1;
+      animation-delay: 0s;
+    }
+
+    .hero-carousel img:nth-child(2) {
+      animation-delay: 3s;
+    }
+
+    .hero-carousel img:nth-child(3) {
+      animation-delay: 6s;
+    }
+
+    .hero-carousel img:nth-child(4) {
+      animation-delay: 9s;
+    }
+
+    @keyframes hero-slide {
+      0%,
+      23% {
+        opacity: 1;
+      }
+
+      28%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-carousel img {
+        animation: none;
+      }
+
+      .hero-carousel img:not(:first-child) {
+        display: none;
+      }
+    }
+
+    .app-image-section {
+      margin-top: 24px;
+    }
+
+    .html-section {
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fafafc;
+      box-shadow: 0 24px 80px rgba(117, 64, 36, 0.08);
+    }
+
+    .html-section iframe {
+      display: block;
+      width: 100%;
+      height: var(--section-height, 100vh);
+      min-height: 900px;
+      border: 0;
+      background: #fafafc;
+    }
+
+    @media (max-width: 768px) {
+      .case-page {
+        padding: 0;
+      }
+
+      .case-section {
+        border-radius: 0;
+      }
+
+      .app-image-section {
+        margin-top: 0;
+      }
+
+      .html-section {
+        margin-top: 0;
+        border-radius: 0;
+      }
+
+      .html-section iframe {
+        min-height: 1180px;
+      }
+
+      .back-link {
+        top: 14px;
+        left: 14px;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="case-page">
+    <a class="back-link" href="../index.html#works">返回作品集</a>
+    <section class="case-section" aria-label="网上老年大学 APP 案例板块 1">
+      <div class="hero-carousel" aria-label="网上老年大学 APP 案例详情板块 1 轮播图">
+        <img src="../image/APP1-1.jpg" alt="网上老年大学 APP 案例详情板块 1 首页展示" />
+        <img src="../image/APP1-2.jpg" alt="网上老年大学 APP 案例详情板块 1 课程展示" />
+        <img src="../image/app-3.jpg" alt="网上老年大学 APP 案例详情板块 1 同学圈展示" />
+        <img src="../image/APP1-4.jpg" alt="网上老年大学 APP 案例详情板块 1 我的页面展示" />
+      </div>
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 2">
+      <img src="../image/APP2.jpg" alt="网上老年大学 APP 案例详情板块 2" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 3">
+      <img src="../image/APP3.jpg" alt="网上老年大学 APP 案例详情板块 3" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 4">
+      <img src="../image/APP4.jpg" alt="网上老年大学 APP 案例详情板块 4" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 5">
+      <img src="../image/APP5.jpg" alt="网上老年大学 APP 案例详情板块 5" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 6">
+      <img src="../image/APP6.jpg" alt="网上老年大学 APP 案例详情板块 6" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 7">
+      <img src="../image/APP7.jpg" alt="网上老年大学 APP 案例详情板块 7" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 8">
+      <img src="../image/app8.jpg" alt="网上老年大学 APP 案例详情板块 8" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 9">
+      <img src="../image/app9.jpg" alt="网上老年大学 APP 案例详情板块 9" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 10">
+      <img src="../image/APP10.jpg" alt="网上老年大学 APP 案例详情板块 10" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 11">
+      <img src="../image/APP11.jpg" alt="网上老年大学 APP 案例详情板块 11" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 12">
+      <img src="../image/APP12.jpg" alt="网上老年大学 APP 案例详情板块 12" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 13">
+      <img src="../image/APP13.jpg" alt="网上老年大学 APP 案例详情板块 13" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 14">
+      <img src="../image/APP14.jpg" alt="网上老年大学 APP 案例详情板块 14" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 15">
+      <img src="../image/APP15.jpg" alt="网上老年大学 APP 案例详情板块 15" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 16">
+      <img src="../image/Frame-49.jpg" alt="网上老年大学 APP 案例详情板块 16 登录页面功能说明" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 17">
+      <img src="../image/APP16.jpg" alt="网上老年大学 APP 案例详情板块 17" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 18">
+      <img src="../image/APP17.jpg" alt="网上老年大学 APP 案例详情板块 18" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 19">
+      <img src="../image/APP18.jpg" alt="网上老年大学 APP 案例详情板块 19" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 20">
+      <img src="../image/APP19.jpg" alt="网上老年大学 APP 案例详情板块 20" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 21">
+      <img src="../image/app20.jpg" alt="网上老年大学 APP 案例详情板块 21" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 22">
+      <img src="../image/APP21.jpg" alt="网上老年大学 APP 案例详情板块 22" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 23">
+      <img src="../image/app23.jpg" alt="网上老年大学 APP 案例详情板块 23" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 24">
+      <img src="../image/APP25.jpg" alt="网上老年大学 APP 案例详情板块 24" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 25">
+      <img src="../image/APP22.jpg" alt="网上老年大学 APP 案例详情板块 25" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 26">
+      <img src="../image/APP26.jpg" alt="网上老年大学 APP 案例详情板块 26" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 27">
+      <img src="../image/APP27.jpg" alt="网上老年大学 APP 案例详情板块 27 所有页面展示" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 28">
+      <img src="../image/APP28.jpg" alt="网上老年大学 APP 案例详情板块 28 运营设计总结" />
+    </section>
+    <section class="case-section app-image-section case-video-section" aria-label="网上老年大学 APP 案例板块 29 表情包动效展示">
+      <video class="case-video" src="../image/emoticon-pack-motion.mp4" autoplay muted loop playsinline controls preload="auto"></video>
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 30">
+      <img src="../image/APP29.jpg" alt="网上老年大学 APP 案例详情板块 30" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 31">
+      <img src="../image/APP30.jpg" alt="网上老年大学 APP 案例详情板块 31" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 32">
+      <img src="../image/APP31.jpg" alt="网上老年大学 APP 案例详情板块 32" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 33">
+      <img src="../image/APP32.jpg" alt="网上老年大学 APP 案例详情板块 33" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 34">
+      <img src="../image/APP33.jpg" alt="网上老年大学 APP 案例详情板块 34" />
+    </section>
+    <section class="case-section app-image-section" aria-label="网上老年大学 APP 案例板块 35">
+      <img src="../image/APP34.jpg" alt="网上老年大学 APP 案例详情板块 35" />
+    </section>
+  </main>
+</body>
+</html>

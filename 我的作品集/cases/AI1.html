@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 案例展示</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            start: '#8D54E9',
+                            end: '#4975E6',
+                            light: '#F4F0FE',
+                            accent: '#1677FF', // 辅助点缀色
+                            success: '#52C41A'
+                        },
+                        text: {
+                            main: '#111827',
+                            desc: '#6B7280',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 40px -2px rgba(0,0,0,0.03)',
+                        'monitor': '0 20px 40px -10px rgba(141, 84, 233, 0.15)',
+                        'card': '0 2px 10px 0 rgba(0,0,0,0.02)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html,
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #F4F6F8; /* 极浅灰背景，凸显主体白色卡片 */
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #8D54E9 0%, #4975E6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #8D54E9 0%, #4975E6 100%);
+        }
+        /* 显示器底座样式 */
+        .monitor-stand {
+            background: linear-gradient(to bottom, #E5E7EB, #D1D5DB);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+        }
+        /* 隐藏滚动条 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border: 1px solid rgba(42, 114, 255, 0.16);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.86);
+            color: #111827;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .back-link:hover {
+            color: #2A72FF;
+            border-color: rgba(42, 114, 255, 0.28);
+        }
+        .prototype-hint {
+            display: inline-block;
+            transform-origin: center;
+            animation: prototypeHintBreath 2.4s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes prototypeHintBreath {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.045);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .prototype-hint {
+                animation: none;
+            }
+        }
+        .hero-card {
+            min-height: 756px;
+        }
+        @media (max-width: 768px) {
+            .back-link {
+                top: 14px;
+                left: 14px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-6 lg:p-12 space-y-10">
+    <a class="back-link" href="../index.html#works" id="backLink" aria-label="返回作品集">← 返回作品集</a>
+
+    <!-- 板块 1：项目概览 -->
+    <section class="max-w-[1440px] w-full mx-auto bg-white rounded-[32px] shadow-soft border border-gray-50 overflow-hidden flex items-center justify-center">
+        <img src="../image/Frame-53.jpg" alt="SmartSupport SaaS" class="w-full h-auto object-contain block">
+    </section>
+
+    <!-- 板块 2：设计目标 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai2.html"
+            title="AI智能客服 SaaS 系统 - 板块 2 设计目标"
+            class="case-section-frame w-full border-0 block"
+            style="height: 860px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 3：设计流程 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai3.html"
+            title="AI智能客服 SaaS 系统 - 板块 3 设计流程"
+            class="case-section-frame w-full border-0 block"
+            style="height: 1180px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 4：需求定义 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="ai4.html"
+            title="AI智能客服 SaaS 系统 - 板块 4 需求定义"
+            class="case-section-frame w-full border-0 block"
+            style="height: 1280px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 5：设计需求整理 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai5.html"
+            title="AI智能客服 SaaS 系统 - 板块 5 设计需求整理"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 980px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 7 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="AI7.html"
+            title="AI智能客服 SaaS 系统 - 板块 7"
+            class="case-section-frame w-full border-0 block"
+            style="height: 900px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 8：核心业务流程 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="ai8.html"
+            title="AI智能客服 SaaS 系统 - 板块 8 核心业务流程"
+            class="case-section-frame w-full border-0 block"
+            style="height: 760px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 9：体验地图与机会点梳理 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="ai9.html"
+            title="AI智能客服 SaaS 系统 - 板块 9 体验地图与机会点梳理"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 1180px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 10：工单闭环业务泳道图 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="AI10.HTML"
+            title="AI智能客服 SaaS 系统 - 板块 10 工单闭环业务泳道图"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 1180px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 11：工单交互设计方案 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="AI11.html"
+            title="AI智能客服 SaaS 系统 - 板块 11 工单交互设计方案"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 900px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 12：智能建单弹窗设计 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="AI12.html"
+            title="AI智能客服 SaaS 系统 - 板块 12 智能建单弹窗设计"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 900px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 13：工单系统设计体系 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai13.html"
+            title="AI智能客服 SaaS 系统 - 板块 13 工单系统设计体系"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 900px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 14：B端组件规范 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai14.html"
+            title="AI智能客服 SaaS 系统 - 板块 14 B端组件规范"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 1600px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 15：栅格布局规范 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai15.html"
+            title="AI智能客服 SaaS 系统 - 板块 15 栅格布局规范"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 900px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 16：数据可视化类别展示 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai16.html"
+            title="AI智能客服 SaaS 系统 - 板块 16 数据可视化类别展示"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 980px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 17：组件规范 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai17.html"
+            title="AI智能客服 SaaS 系统 - 板块 17 组件规范"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 1450px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 18：组件化设计 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px] bg-[#F8F9FC] shadow-soft border border-gray-50">
+        <iframe
+            src="ai18.html"
+            title="AI智能客服 SaaS 系统 - 板块 18 组件化设计"
+            class="case-section-frame w-full border-0 block"
+            scrolling="no"
+            style="height: 980px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 19：设计验证 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="ai19.html"
+            title="AI智能客服 SaaS 系统 - 板块 19 设计验证"
+            class="w-full border-0 block"
+            scrolling="no"
+            style="height: 742px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 20：项目总结 -->
+    <section class="max-w-[1440px] w-full mx-auto overflow-hidden rounded-[32px]">
+        <iframe
+            src="ai20.html"
+            title="AI智能客服 SaaS 系统 - 板块 20 项目总结"
+            class="w-full border-0 block"
+            scrolling="no"
+            style="height: 811px;"
+        ></iframe>
+    </section>
+
+    <!-- 板块 21：AI智能客服 SaaS 便携版演示 -->
+    <div class="max-w-[1440px] w-full mx-auto">
+        <div class="px-6 lg:px-10 pb-5 text-center">
+            <p class="prototype-hint text-lg lg:text-3xl font-black text-text-main">👇 下方为可交互高保真原型，支持真实操作体验，请直接点击探索</p>
+        </div>
+        <section class="overflow-hidden rounded-[32px] bg-white shadow-soft border border-gray-50">
+            <iframe
+                src="ai-saas-portable/index.html"
+                title="AI智能客服 SaaS 便携版演示"
+                class="case-section-frame w-full border-0 block"
+                style="height: 960px;"
+            ></iframe>
+        </section>
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+
+        const backLink = document.getElementById('backLink');
+        if (backLink) {
+            backLink.addEventListener('click', (event) => {
+                if (window.history.length <= 1) return;
+                event.preventDefault();
+                window.history.back();
+            });
+        }
+
+        function resizeCaseFrame(frame) {
+            try {
+                const doc = frame.contentDocument || frame.contentWindow.document;
+                const height = Math.max(
+                    doc.body.scrollHeight,
+                    doc.documentElement.scrollHeight
+                );
+                frame.style.height = height + 'px';
+            } catch (error) {
+                // Keep the fixed fallback height if the browser blocks frame measurement.
+            }
+        }
+
+        document.querySelectorAll('.case-section-frame').forEach((frame) => {
+            frame.addEventListener('load', () => resizeCaseFrame(frame));
+        });
+    </script>
+</body>
+</html>

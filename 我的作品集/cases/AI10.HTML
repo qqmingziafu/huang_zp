@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 工单闭环业务泳道图</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1677FF',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 8px 30px -6px rgba(0,0,0,0.04)',
+                        'node': '0 4px 16px -4px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html,
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #F8F9FC;
+        }
+        /* 隐藏滚动条但保留滚动功能 */
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar { display: none; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        
+        /* 连接线动画 */
+        .dash-line-anim {
+            stroke-dasharray: 6 4;
+            animation: dash 20s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -100; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex justify-center py-10 px-6">
+
+    <!-- 主容器 -->
+    <div class="max-w-[1440px] w-full relative z-10 flex flex-col">
+        
+        <!-- ================= 头部标题与图例 ================= -->
+        <header class="flex justify-between items-end mb-8 relative z-20 px-4">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2 py-1 bg-gray-200 text-gray-500 rounded text-xs font-bold tracking-widest uppercase">Phase 04</span>
+                    <span class="text-xs font-bold text-emerald-500 tracking-widest uppercase">Business Logic Flow</span>
+                </div>
+                <h1 class="text-[32px] font-black tracking-tight text-[#1A1A1A]">
+                    复杂问题协同与工单闭环 | <span class="text-[#1677FF]">业务泳道图</span>
+                </h1>
+            </div>
+            
+            <div class="flex items-center gap-6 text-[13px] font-medium text-gray-500">
+                <span class="flex items-center gap-2"><div class="w-6 h-[2px] bg-slate-400"></div> 标准流转流程</span>
+                <span class="flex items-center gap-2"><div class="w-6 h-0 border-t-2 border-dashed border-orange-400"></div> 异常/回退流程</span>
+                <span class="flex items-center gap-2"><div class="w-6 h-0 border-t-2 border-dashed border-purple-400"></div> 系统自动化策略</span>
+            </div>
+        </header>
+
+        <!-- ================= 泳道图主画布 ================= -->
+        <main class="w-full bg-white rounded-2xl shadow-soft border border-gray-200 overflow-x-auto custom-scrollbar">
+            <!-- 绝对定位的 1200x1000 固定比例画布 -->
+            <div class="relative w-[1200px] h-[1000px] bg-white">
+                
+                <!-- 1. 泳道背景与栏目标题 (4栏) -->
+                <div class="absolute inset-0 grid grid-cols-4 pointer-events-none z-0">
+                    <!-- Col 1: 访客端 -->
+                    <div class="border-r border-gray-100 bg-orange-50/20 relative">
+                        <div class="absolute top-0 w-full h-14 border-b border-gray-100 flex items-center justify-center bg-white/50 backdrop-blur">
+                            <i data-lucide="user" class="w-4 h-4 text-orange-500 mr-2"></i>
+                            <span class="text-sm font-bold text-gray-700">访客 / 用户 (User)</span>
+                        </div>
+                    </div>
+                    <!-- Col 2: 客服端 -->
+                    <div class="border-r border-gray-100 bg-blue-50/20 relative">
+                        <div class="absolute top-0 w-full h-14 border-b border-gray-100 flex items-center justify-center bg-white/50 backdrop-blur">
+                            <i data-lucide="headset" class="w-4 h-4 text-blue-500 mr-2"></i>
+                            <span class="text-sm font-bold text-gray-700">客服坐席 (Agent)</span>
+                        </div>
+                    </div>
+                    <!-- Col 3: 协同端 -->
+                    <div class="border-r border-gray-100 bg-emerald-50/20 relative">
+                        <div class="absolute top-0 w-full h-14 border-b border-gray-100 flex items-center justify-center bg-white/50 backdrop-blur">
+                            <i data-lucide="users" class="w-4 h-4 text-emerald-500 mr-2"></i>
+                            <span class="text-sm font-bold text-gray-700">协同部门 (Support)</span>
+                        </div>
+                    </div>
+                    <!-- Col 4: AI与系统 -->
+                    <div class="bg-purple-50/20 relative">
+                        <div class="absolute top-0 w-full h-14 border-b border-gray-100 flex items-center justify-center bg-white/50 backdrop-blur">
+                            <i data-lucide="cpu" class="w-4 h-4 text-purple-500 mr-2"></i>
+                            <span class="text-sm font-bold text-gray-700">AI与系统 (System)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. SVG 连线层 -->
+                <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-standard" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse">
+                            <polygon points="0,0 6,3 0,6" fill="#94A3B8" />
+                        </marker>
+                        <marker id="arrow-auto" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse">
+                            <polygon points="0,0 6,3 0,6" fill="#A855F7" />
+                        </marker>
+                        <marker id="arrow-alert" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse">
+                            <polygon points="0,0 6,3 0,6" fill="#F59E0B" />
+                        </marker>
+                    </defs>
+
+                    <!-- L1: N1(150,100) -> N2(450,100) (Standard) -->
+                    <path d="M 228 100 L 348 100" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#arrow-standard)" />
+                    
+                    <!-- L2: N2(450,100) -> N3(450,200) (Standard) -->
+                    <path d="M 450 134 L 450 157" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#arrow-standard)" />
+                    
+                    <!-- L3: N3(450,200) -> N4(1050,200) (Purple) -->
+                    <path d="M 543 200 L 948 200" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                    
+                    <!-- L4: N4(1050,200) -> N5(750,300) (Purple) -->
+                    <path d="M 1050 234 L 1050 250 L 750 250 L 750 257" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                    
+                    <!-- L5: N5(750,300) -> N6(750,420) (Standard) -->
+                    <path d="M 750 334 L 750 371" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#arrow-standard)" />
+                    
+                    <!-- L6: N6(750,420) -> N7(1050,420) (Exception/Orange) -->
+                    <path d="M 790 420 L 948 420" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arrow-alert)" />
+                    
+                    <!-- L7: N7(1050,420) -> N5(750,300) (Exception/Orange) Return Path -->
+                    <path d="M 1050 386 L 1050 300 L 852 300" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arrow-alert)" />
+                    
+                    <!-- L8: N6(750,420) -> N8(750,540) (Standard) -->
+                    <path d="M 750 460 L 750 497" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#arrow-standard)" />
+                    
+                    <!-- L9: N8(750,540) -> N9(1050,540) (Purple) -->
+                    <path d="M 843 540 L 948 540" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                    
+                    <!-- L10: N9(1050,540) -> N10(150,660) (Purple) -->
+                    <path d="M 1050 574 L 1050 610 L 150 610 L 150 611" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                    
+                    <!-- L11: N10(150,660) -> N11(450,660) (Exception/Orange) -->
+                    <path d="M 190 660 L 348 660" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arrow-alert)" />
+                    
+                    <!-- L12: N11(450,660) -> N5(750,300) (Exception/Orange) Return Path -->
+                    <path d="M 450 626 L 450 300 L 648 300" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arrow-alert)" />
+                    
+                    <!-- L13: N10(150,660) -> N13(150,780) (Standard) -->
+                    <path d="M 150 700 L 150 737" stroke="#94A3B8" stroke-width="1.5" fill="none" marker-end="url(#arrow-standard)" />
+                    
+                    <!-- L14: N13(150,780) -> N12(1050,780) (Purple) -->
+                    <path d="M 243 780 L 963 780" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                    
+                    <!-- L15: N12(1050,780) -> N14(1050,880) (Purple) -->
+                    <path d="M 1050 806 L 1050 837" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="dash-line-anim" marker-end="url(#arrow-auto)" />
+                </svg>
+
+                <!-- 3. 线条文本标签层 -->
+                <div class="absolute inset-0 z-20 pointer-events-none">
+                    <div class="absolute left-[580px] top-[182px] text-[10px] font-bold text-purple-500 bg-white px-1">AI 自动化提取与派单</div>
+                    <div class="absolute left-[850px] top-[232px] text-[10px] font-bold text-purple-500 bg-white px-1">系统通知流转</div>
+                    <div class="absolute left-[840px] top-[404px] text-[10px] font-bold text-orange-500 bg-white px-1">发生延期 / 受阻</div>
+                    <div class="absolute left-[890px] top-[282px] text-[10px] font-bold text-orange-500 bg-white px-1">自动升级干预</div>
+                    <div class="absolute left-[760px] top-[470px] text-[10px] font-bold text-slate-400 bg-white px-1">顺利解决</div>
+                    <div class="absolute left-[240px] top-[644px] text-[10px] font-bold text-orange-500 bg-white px-1">未解决 / 驳回</div>
+                    <div class="absolute left-[530px] top-[282px] text-[10px] font-bold text-orange-500 bg-white px-1">退回重新处理</div>
+                    <div class="absolute left-[160px] top-[710px] text-[10px] font-bold text-slate-400 bg-white px-1">已解决</div>
+                    <div class="absolute left-[550px] top-[764px] text-[10px] font-bold text-purple-500 bg-white px-1">触发工单数据归档与闭环</div>
+                </div>
+
+                <!-- 4. 节点层 (Nodes) -->
+                
+                <!-- N1: 复杂咨询发起 (X=150, Y=100) -->
+                <div class="absolute left-[150px] top-[100px] -translate-x-1/2 -translate-y-1/2 w-[156px] h-[52px] bg-slate-800 text-white rounded-full shadow-node flex items-center justify-center z-30">
+                    <i data-lucide="alert-octagon" class="w-4 h-4 mr-2"></i>
+                    <span class="text-[13px] font-bold tracking-wide">发起售后/异常投诉</span>
+                </div>
+
+                <!-- N2: 人工诊断 (X=450, Y=100) -->
+                <div class="absolute left-[450px] top-[100px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-blue-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-blue-50 rounded-lg mr-3 shrink-0"><i data-lucide="headset" class="w-4 h-4 text-brand-blue"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">人工诊断与接待</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">判断复杂问题需升级</div>
+                    </div>
+                </div>
+
+                <!-- N3: 创建工单 (X=450, Y=200) -->
+                <div class="absolute left-[450px] top-[200px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-blue-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-blue-50 rounded-lg mr-3 shrink-0"><i data-lucide="file-plus" class="w-4 h-4 text-brand-blue"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">一键创建并提交工单</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">AI自动提取会话摘要</div>
+                    </div>
+                </div>
+
+                <!-- N4: 智能分派 (X=1050, Y=200) -->
+                <div class="absolute left-[1050px] top-[200px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-purple-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-purple-50 rounded-lg mr-3 shrink-0"><i data-lucide="git-branch" class="w-4 h-4 text-purple-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">智能分配处理人</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">基于技能组与实时负载</div>
+                    </div>
+                </div>
+
+                <!-- N5: 接收与协同 (X=750, Y=300) -->
+                <div class="absolute left-[750px] top-[300px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-emerald-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-emerald-50 rounded-lg mr-3 shrink-0"><i data-lucide="users" class="w-4 h-4 text-emerald-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">接收工单并协同处理</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">使用内部评论区沟通</div>
+                    </div>
+                </div>
+
+                <!-- N6: 处理超时/受阻判断 (X=750, Y=420) -->
+                <div class="absolute left-[750px] top-[420px] -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] bg-white border border-gray-200 shadow-node rotate-45 z-30 flex items-center justify-center hover:border-brand-blue transition-colors">
+                    <span class="-rotate-45 text-[11px] font-bold text-center leading-tight text-gray-600">处理受阻<br>或超时?</span>
+                </div>
+
+                <!-- N7: SLA超时预警 (X=1050, Y=420) -->
+                <div class="absolute left-[1050px] top-[420px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-orange-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-orange-50 rounded-lg mr-3 shrink-0"><i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">SLA 时效预警升级</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">紧急工单提醒与自动拉群</div>
+                    </div>
+                </div>
+
+                <!-- N8: 回填结果 (X=750, Y=540) -->
+                <div class="absolute left-[750px] top-[540px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-emerald-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-emerald-50 rounded-lg mr-3 shrink-0"><i data-lucide="check-square" class="w-4 h-4 text-emerald-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">回填处理结果</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">录入结构化工单完结状态</div>
+                    </div>
+                </div>
+
+                <!-- N9: 进度通知 (X=1050, Y=540) -->
+                <div class="absolute left-[1050px] top-[540px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-purple-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-purple-50 rounded-lg mr-3 shrink-0"><i data-lucide="bell-ring" class="w-4 h-4 text-purple-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">发送进度与结果通知</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">短信/微信多渠道触达</div>
+                    </div>
+                </div>
+
+                <!-- N10: 用户验收判断 (X=150, Y=660) -->
+                <div class="absolute left-[150px] top-[660px] -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] bg-white border border-gray-200 shadow-node rotate-45 z-30 flex items-center justify-center hover:border-brand-blue transition-colors">
+                    <span class="-rotate-45 text-[11px] font-bold text-center leading-tight text-gray-600">用户确认<br>是否解决?</span>
+                </div>
+
+                <!-- N11: 驳回重新协调 (X=450, Y=660) -->
+                <div class="absolute left-[450px] top-[660px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-orange-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-orange-50 rounded-lg mr-3 shrink-0"><i data-lucide="rotate-ccw" class="w-4 h-4 text-orange-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">驳回并重新协调</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">要求重新跟进处理</div>
+                    </div>
+                </div>
+
+                <!-- N13: 满意度评价 (X=150, Y=780) -->
+                <div class="absolute left-[150px] top-[780px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-orange-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-orange-50 rounded-lg mr-3 shrink-0"><i data-lucide="star" class="w-4 h-4 text-orange-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">服务满意度评价</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">收集用户反馈数据(CSAT)</div>
+                    </div>
+                </div>
+
+                <!-- N12: 工单完结关闭 (X=1050, Y=780) -->
+                <div class="absolute left-[1050px] top-[780px] -translate-x-1/2 -translate-y-1/2 w-[156px] h-[52px] bg-slate-800 text-white rounded-full shadow-node flex items-center justify-center z-30">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 mr-2"></i>
+                    <span class="text-[13px] font-bold tracking-wide">工单完结归档</span>
+                </div>
+
+                <!-- N14: 知识反哺 (X=1050, Y=880) -->
+                <div class="absolute left-[1050px] top-[880px] -translate-x-1/2 -translate-y-1/2 w-[186px] h-[68px] bg-white border-[1.5px] border-purple-200 rounded-xl shadow-node flex items-center p-3 z-30 hover:-translate-y-0.5 transition-transform">
+                    <div class="p-2 bg-purple-50 rounded-lg mr-3 shrink-0"><i data-lucide="database" class="w-4 h-4 text-purple-500"></i></div>
+                    <div>
+                        <div class="text-[12px] font-bold text-gray-800">知识提取与沉淀</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">自动生成QA问答对反哺</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ================= 底部页码区 ================= -->
+        <footer class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center text-[12px] font-bold text-gray-400">
+            <span>09 / 09 Business Logic Flow</span>
+            <div class="text-right">
+                <span class="opacity-50">SmartSupport SaaS Ticketing System</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
