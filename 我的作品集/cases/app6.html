@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亲情代办代付流程图 - 网上老年大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8F9FB',       
+                            dark: '#1E293B',     
+                            gray: '#8E9EAF',     
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8F9FB;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 隐藏滚动条 */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 节点卡片悬浮特效 */
+        .flow-node {
+            transition: all 0.3s ease;
+        }
+        .flow-node:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-6 md:p-12 text-slate-800">
+
+    <div class="max-w-[1280px] mx-auto overflow-hidden pb-10">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col md:flex-row md:items-end justify-between gap-6 p-10 pb-8 border-b border-slate-100">
+            <div>
+                <p class="text-[#E66A40] font-bold tracking-wider text-sm mb-2 uppercase">BUSINESS WORKFLOW</p>
+                <h1 class="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">亲情代付业务流程</h1>
+            </div>
+            <div class="md:text-right">
+                <p class="text-brand-gray text-sm font-medium leading-relaxed">
+                    跨职能泳道图：展示长辈、平台与子女三方的交互协同，<br>
+                    解决老年人线上支付信任缺失与操作门槛高的痛点。
+                </p>
+            </div>
+        </header>
+
+        <!-- Diagram Section -->
+        <div class="w-full overflow-x-auto hide-scrollbar p-6">
+            <div class="min-w-[1050px] relative bg-[#FCFDFE] border border-slate-100 rounded-2xl flex shadow-sm overflow-hidden">
+                
+                <!-- 左侧角色栏 (Actors Sidebar) -->
+                <div class="w-[120px] bg-white border-r border-slate-200 flex flex-col relative z-20 shadow-[2px_0_10px_rgba(0,0,0,0.02)] shrink-0">
+                    <!-- 长辈 -->
+                    <div class="h-[160px] flex flex-col items-center justify-center gap-2 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-xl shadow-sm">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <span class="text-sm font-bold text-slate-700">长辈 (App)</span>
+                    </div>
+                    <!-- 平台 -->
+                    <div class="h-[160px] flex flex-col items-center justify-center gap-2 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center text-xl shadow-sm">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <span class="text-sm font-bold text-slate-700">平台中台</span>
+                    </div>
+                    <!-- 子女 -->
+                    <div class="h-[160px] flex flex-col items-center justify-center gap-2">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-500 rounded-xl flex items-center justify-center text-xl shadow-sm">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <span class="text-sm font-bold text-slate-700">子女 (小程序)</span>
+                    </div>
+                </div>
+
+                <!-- 右侧流程图主区域 (Flowchart Area) -->
+                <div class="flex-1 relative h-[480px]">
+                    
+                    <!-- 背景网格线 -->
+                    <!-- 横向分隔线 (行) -->
+                    <div class="absolute top-[160px] left-0 w-full h-[1px] bg-slate-100"></div>
+                    <div class="absolute top-[320px] left-0 w-full h-[1px] bg-slate-100"></div>
+                    
+                    <!-- 纵向分隔线与阶段标识 (列) -->
+                    <div class="absolute top-0 left-0 w-full h-full flex pointer-events-none">
+                        <!-- Phase 1 -->
+                        <div class="flex-1 border-r border-dashed border-slate-200 relative">
+                            <div class="absolute top-4 left-6 px-3 py-1 bg-slate-100 rounded-md text-[11px] font-black text-slate-400 tracking-wider uppercase">
+                                Phase 1: 发现与求助
+                            </div>
+                        </div>
+                        <!-- Phase 2 -->
+                        <div class="flex-1 border-r border-dashed border-slate-200 relative">
+                            <div class="absolute top-4 left-6 px-3 py-1 bg-slate-100 rounded-md text-[11px] font-black text-slate-400 tracking-wider uppercase">
+                                Phase 2: 绑定与代付
+                            </div>
+                        </div>
+                        <!-- Phase 3 -->
+                        <div class="flex-1 relative">
+                            <div class="absolute top-4 left-6 px-3 py-1 bg-slate-100 rounded-md text-[11px] font-black text-slate-400 tracking-wider uppercase">
+                                Phase 3: 授权与开通
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SVG 连线层 -->
+                    <!-- 所有的坐标点以 (x, y) 对应节点的中心位置 -->
+                    <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                        <defs>
+                            <!-- 箭头标记 -->
+                            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#CBD5E1" />
+                            </marker>
+                            <marker id="arrow-dashed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8" />
+                            </marker>
+                        </defs>
+
+                        <!-- P1: 长辈选课 -> 长辈求助 -->
+                        <polyline points="120,80 260,80" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+                        
+                        <!-- P1: 长辈求助 -> 平台生成卡片 -->
+                        <polyline points="260,80 260,240" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+                        
+                        <!-- P1-P2: 平台生成卡片 -> 子女收到卡片 (带折角) -->
+                        <polyline points="260,240 330,240 330,400 450,400" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-dashed)" />
+                        
+                        <!-- P2: 子女收到卡片 -> 子女微信支付 -->
+                        <polyline points="450,400 600,400" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+                        
+                        <!-- P2: 子女微信支付 -> 平台校验订单 (向上折角) -->
+                        <polyline points="600,400 600,240" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+
+                        <!-- P2-P3: 平台校验订单 -> 平台权限下发 -->
+                        <polyline points="600,240 760,240" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+
+                        <!-- P3: 平台权限下发 -> 长辈收到提醒 (向上折角) -->
+                        <polyline points="760,240 760,80" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+
+                        <!-- P3: 长辈收到提醒 -> 交易完成 -->
+                        <polyline points="760,80 880,80" fill="none" stroke="#CBD5E1" stroke-width="2" marker-end="url(#arrow)" />
+                    </svg>
+
+                    <!-- HTML 节点层 (绝对定位) -->
+                    
+                    <!-- Node 1: 长辈选课 -->
+                    <div class="flow-node absolute left-[120px] top-[80px] -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-blue-100 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-book-open text-blue-500"></i>
+                        <span class="text-[13px] font-bold text-slate-700">浏览并选课</span>
+                    </div>
+
+                    <!-- Node 2: 长辈求助 -->
+                    <div class="flow-node absolute left-[260px] top-[80px] -translate-x-1/2 -translate-y-1/2 bg-blue-50 border-2 border-blue-300 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-share-nodes text-blue-600"></i>
+                        <span class="text-[13px] font-bold text-blue-700">点击"找人代付"</span>
+                    </div>
+
+                    <!-- Node 3: 平台生成卡片 -->
+                    <div class="flow-node absolute left-[260px] top-[240px] -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-slate-200 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-regular fa-id-card text-slate-500"></i>
+                        <span class="text-[13px] font-bold text-slate-700">生成代付小程序卡片</span>
+                    </div>
+
+                    <!-- Node 4: 子女收到卡片 -->
+                    <div class="flow-node absolute left-[450px] top-[400px] -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-100 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-brands fa-weixin text-green-500"></i>
+                        <span class="text-[13px] font-bold text-slate-700">收到微信求助卡片</span>
+                    </div>
+
+                    <!-- Node 5: 子女微信支付 -->
+                    <div class="flow-node absolute left-[600px] top-[400px] -translate-x-1/2 -translate-y-1/2 bg-purple-50 border-2 border-purple-300 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-wallet text-purple-600"></i>
+                        <span class="text-[13px] font-bold text-purple-700">确认订单并支付</span>
+                    </div>
+
+                    <!-- Node 6: 平台校验与资金冻结 (虚线高亮框，参考原图设计) -->
+                    <div class="flow-node absolute left-[600px] top-[240px] -translate-x-1/2 -translate-y-1/2 bg-orange-50 border-2 border-dashed border-orange-400 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-shield-check text-orange-500"></i>
+                        <span class="text-[13px] font-bold text-orange-600">支付状态校验</span>
+                    </div>
+
+                    <!-- Node 7: 平台权限下发 -->
+                    <div class="flow-node absolute left-[760px] top-[240px] -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-slate-200 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-unlock-keyhole text-slate-500"></i>
+                        <span class="text-[13px] font-bold text-slate-700">自动开通课程权限</span>
+                    </div>
+
+                    <!-- Node 8: 长辈收到提醒 -->
+                    <div class="flow-node absolute left-[760px] top-[80px] -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-blue-100 shadow-sm rounded-xl px-4 py-2.5 flex items-center gap-2.5 z-20">
+                        <i class="fa-solid fa-bell text-blue-500"></i>
+                        <span class="text-[13px] font-bold text-slate-700">弹出大字开课提醒</span>
+                    </div>
+
+                    <!-- Node 9: 交易完成 (Endpoint 黑色胶囊，参考原图设计) -->
+                    <div class="flow-node absolute left-[880px] top-[80px] -translate-x-1/2 -translate-y-1/2 bg-slate-900 border-2 border-slate-900 shadow-lg rounded-full px-5 py-2.5 flex items-center gap-2 z-20 text-white">
+                        <span class="text-[13px] font-bold tracking-wide">开始上课</span>
+                        <i class="fa-solid fa-arrow-right text-xs opacity-70 ml-1"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

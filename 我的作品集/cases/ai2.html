@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 设计目标</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            start: '#8D54E9',
+                            end: '#4975E6',
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 8px 30px -4px rgba(0,0,0,0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html,
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            /* 匹配参考图的极淡灰蓝背景 */
+            background-color: #F8F9FC; 
+        }
+        .text-gradient {
+            color: #2A72FF;
+        }
+        /* 卡片悬浮微动效 */
+        .goal-card {
+            transition: all 0.3s ease;
+        }
+        .goal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px -6px rgba(141, 84, 233, 0.08);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 lg:p-12">
+
+    <!-- 主容器 (模拟画布) -->
+    <div class="max-w-[1440px] w-full bg-[#F8F9FC] relative overflow-hidden flex flex-col">
+
+        <!-- ================= 头部区域 ================= -->
+        <header class="mb-14 flex justify-between items-end">
+            <div>
+                <!-- 顶部小标签 -->
+                <div class="inline-flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 rounded-lg bg-[#20B2AA] flex items-center justify-center text-white shadow-sm">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </div>
+                    <span class="px-3 py-1.5 bg-[#E6F7F6] text-[#20B2AA] text-[13px] font-bold tracking-widest uppercase rounded-full">
+                        Project Goals
+                    </span>
+                </div>
+
+                <!-- 大标题 -->
+                <h1 class="text-[40px] font-black tracking-tight text-text-main flex items-center gap-4">
+                    设计目标 
+                    <span class="text-gray-300 font-light">|</span> 
+                    <span class="text-gradient">Design Objectives</span>
+                </h1>
+            </div>
+
+            <!-- 右侧副说明 -->
+            <div class="text-right pb-2 hidden md:block">
+                <h3 class="text-sm font-bold text-[#8C98A4] mb-1">SmartSupport SaaS System</h3>
+                <p class="text-xs text-[#B0B8C1]">2026 Portfolio Collection</p>
+            </div>
+        </header>
+
+
+        <!-- ================= 卡片网格区域 ================= -->
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            
+            <!-- Card 1: AI 效率 -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#EEF2FF] flex items-center justify-center mb-6">
+                    <i data-lucide="bot" class="w-7 h-7 text-[#6366F1]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">AI 驱动，降本增效</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">Automation First</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    以大语言模型为核心，实现 80% 以上常见问题的自动回复与处理，大幅降低企业人工客服工作负荷与运营成本。
+                </p>
+            </div>
+
+            <!-- Card 2: 转化增长 -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#FFF1F2] flex items-center justify-center mb-6">
+                    <i data-lucide="target" class="w-7 h-7 text-[#F43F5E]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">全链路线索转化</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">Sales Conversion</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    构建从“线索获取”、“意图识别”到“人工接管”的漏斗式跟进路径，打通服务与营销闭环，不漏掉任何高意向客户。
+                </p>
+            </div>
+
+            <!-- Card 3: 知识库 RAG -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#F0FDF4] flex items-center justify-center mb-6">
+                    <i data-lucide="layers" class="w-7 h-7 text-[#10B981]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">知识沉淀，自学习闭环</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">RAG & Self-learning</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    基于 RAG 技术的动态知识检索，将会话中的未命中问题自动沉淀提取，建立知识库健康度评分，让系统越用越聪明。
+                </p>
+            </div>
+
+            <!-- Card 4: 赋能坐席 -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#F5F3FF] flex items-center justify-center mb-6">
+                    <i data-lucide="headset" class="w-7 h-7 text-[#8B5CF6]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">赋能坐席，体验一致</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">Agent Empowerment</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    为一线客服提供 360° 客户画像档案与 AI 实时推荐回复建议。降低操作复杂度，赋能客服提供高质量的个性化服务。
+                </p>
+            </div>
+
+            <!-- Card 5: 规范一致性 -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#FAF5FF] flex items-center justify-center mb-6">
+                    <i data-lucide="layout-grid" class="w-7 h-7 text-[#A855F7]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">一致性体验规范</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">Design Consistency</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    建立现代化的 B 端组件设计系统 (Design System)，统一全局交互逻辑与视觉语言，实现信息降噪，降低企业用户的学习与上手成本。
+                </p>
+            </div>
+
+            <!-- Card 6: 数据驱动 -->
+            <div class="bg-white p-8 rounded-[24px] shadow-card border border-gray-50 goal-card">
+                <div class="w-14 h-14 rounded-[16px] bg-[#ECFEFF] flex items-center justify-center mb-6">
+                    <i data-lucide="bar-chart-2" class="w-7 h-7 text-[#06B6D4]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-2">数据驱动决策</h3>
+                <p class="text-[11px] font-bold text-[#8C98A4] tracking-widest uppercase mb-4">Data Driven</p>
+                <p class="text-[14px] text-text-desc leading-relaxed">
+                    为管理层打造“上帝视角”的数据看板。将 AI 拦截率、转人工原因、客服人效等核心指标实时可视化，辅助科学的运营决策。
+                </p>
+            </div>
+
+        </main>
+
+
+        <!-- ================= 底部页码指示器 ================= -->
+        <footer class="flex justify-between items-center border-t border-gray-200 pt-8 mt-auto pb-4">
+            
+            <!-- 左侧点状分页 -->
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                <!-- 当前页 -->
+                <div class="w-6 h-2 rounded-full bg-[#20B2AA]"></div> 
+                <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+            </div>
+
+            <!-- 右侧文字分页 -->
+            <div class="text-right">
+                <span class="text-sm font-bold text-[#8C98A4]">02 / 08 Design Goals</span>
+            </div>
+            
+        </footer>
+
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

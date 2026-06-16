@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 需求定义</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#4975E6',
+                            purple: '#8D54E9',
+                            light: '#F4F0FE',
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 4px 24px -6px rgba(0,0,0,0.04)',
+                        'floating': '0 12px 32px -8px rgba(73, 117, 230, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        html,
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #fff;
+        }
+        /* 模拟网格背景 */
+        .bg-grid {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+        }
+        .text-gradient {
+            color: #2A72FF;
+        }
+        .card-accent-red,
+        .card-accent-blue,
+        .card-accent-green,
+        .card-accent-purple,
+        .card-accent-orange {
+            background: #fff;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex justify-center">
+
+    <!-- 主画布区 -->
+    <div class="max-w-[1280px] w-full bg-white overflow-hidden relative">
+        <div class="absolute inset-0 bg-grid z-0 opacity-60"></div>
+
+        <div class="relative z-10 p-10 lg:p-14">
+            
+            <!-- ================= 头部区域 ================= -->
+            <header class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-6">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-gray-400 tracking-widest uppercase">Phase 01</span>
+                        <span class="text-xs font-bold text-brand-blue tracking-widest uppercase">Discover & Define</span>
+                    </div>
+                    <h1 class="text-[36px] font-black tracking-tight text-text-main leading-tight">
+                        从用户原声到<br>
+                        <span class="text-gradient">核心需求定义</span>
+                    </h1>
+                </div>
+                
+                <!-- 统计指标标签 -->
+                <div class="flex flex-wrap gap-3">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-full shadow-sm">
+                        <i data-lucide="message-square" class="w-4 h-4 text-brand-blue"></i>
+                        <span class="text-sm text-text-desc font-medium">收集反馈 <strong class="text-text-main">500+</strong></span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-full shadow-sm">
+                        <i data-lucide="filter" class="w-4 h-4 text-brand-purple"></i>
+                        <span class="text-sm text-text-desc font-medium">归纳痛点 <strong class="text-text-main">36 项</strong></span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-full shadow-sm">
+                        <i data-lucide="layers" class="w-4 h-4 text-emerald-500"></i>
+                        <span class="text-sm text-text-desc font-medium">核心模块 <strong class="text-text-main">8 个</strong></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= 第一部分：用户原声 (VOC) ================= -->
+            <section class="mb-12">
+                <div class="flex items-center gap-2 mb-6">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-text-muted"></i>
+                    <h2 class="text-lg font-bold text-text-main">用户原声 (Voice of Customer)</h2>
+                </div>
+
+                <!-- 6宫格 VOC 卡片 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card card-accent-red relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold">坐</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">客服坐席 Agent</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-red-50 text-red-500 text-[10px] font-bold rounded-sm">效率低</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-red-500 opacity-5 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “每天处理大量重复问题，快捷回复找半天，系统来回切，多渠道消息看不过来，真的回复不过来！”
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card card-accent-orange relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 font-bold">管</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">客服主管 Manager</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-orange-50 text-orange-500 text-[10px] font-bold rounded-sm">管理难</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-orange-500 opacity-5 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “每天几千条会话，服务质量根本看不过来，AI拦截率到底是多少也看不清，排班一团乱。”
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card card-accent-blue relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 font-bold">C</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">终端客户 End User</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-blue-50 text-blue-500 text-[10px] font-bold rounded-sm">体验差</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-blue-500 opacity-5 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “这机器人太傻了，一直循环回复相同的话，转人工排队还要等十多分钟，问题根本没解决！”
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card card-accent-purple relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-500 font-bold">运</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">运营负责人 Operation</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-purple-50 text-purple-500 text-[10px] font-bold rounded-sm">转化低</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-purple-500 opacity-5 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “很多来咨询的都是高意向客户，但由于没有及时标记和跟进，销售线索白白流失了。”
+                        </p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card card-accent-green relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-500 font-bold">实</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">实施实施 IT Tech</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-emerald-50 text-emerald-500 text-[10px] font-bold rounded-sm">配置难</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-emerald-500 opacity-5 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “多渠道接入（微信、官网、APP）特别麻烦，机器人的知识库每次都要手动一条条录入进去。”
+                        </p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-white rounded-[20px] p-6 border border-gray-100 shadow-card relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold">C</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-text-main">企业 CEO</h3>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-sm">成本高</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="absolute top-16 left-4 w-10 h-10 text-slate-400 opacity-10 rotate-180"></i>
+                        <p class="text-[13px] text-text-desc leading-relaxed relative z-10 font-medium">
+                            “客服团队规模越来越大，人工成本直线上升，但带来的直接收益和 ROI 却完全看不见。”
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= 过渡按钮 ================= -->
+            <div class="flex justify-center mb-10 relative z-10">
+                <div class="inline-flex items-center gap-2 px-5 py-2 bg-[#F1F5F9] border border-gray-200 text-text-desc text-sm font-bold rounded-full shadow-sm text-gray-500">
+                    <i data-lucide="arrow-down-to-line" class="w-4 h-4"></i>
+                    亲和图 (Affinity Diagram) 痛点清洗
+                </div>
+            </div>
+
+            <!-- ================= 第二部分：需求池与设计定义 ================= -->
+            <section class="flex flex-col lg:flex-row gap-10">
+                
+                <!-- 左侧：原始需求池 -->
+                <div class="w-full lg:w-[35%]">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="list-tree" class="w-5 h-5 text-text-muted"></i>
+                            <h3 class="text-base font-bold text-text-main">原始需求池</h3>
+                        </div>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-500 text-[10px] font-bold rounded-full">Raw Data</span>
+                    </div>
+
+                    <div class="space-y-3 relative before:absolute before:left-6 before:top-4 before:bottom-4 before:w-[1px] before:bg-gray-200">
+                        <!-- item 1 -->
+                        <div class="flex items-center gap-3 relative z-10 bg-white/50 p-2 rounded-lg hover:bg-white border border-transparent hover:border-gray-100 transition-colors">
+                            <div class="w-12 text-center text-[10px] font-bold text-gray-400 bg-white shadow-sm py-1 rounded">坐席</div>
+                            <p class="text-[13px] text-text-desc">希望系统能自动帮我回复一半的问题</p>
+                        </div>
+                        <!-- item 2 -->
+                        <div class="flex items-center gap-3 relative z-10 bg-white/50 p-2 rounded-lg hover:bg-white border border-transparent hover:border-gray-100 transition-colors">
+                            <div class="w-12 text-center text-[10px] font-bold text-gray-400 bg-white shadow-sm py-1 rounded">主管</div>
+                            <p class="text-[13px] text-text-desc">排队超时需要有自动提醒与预警功能</p>
+                        </div>
+                        <!-- item 3 -->
+                        <div class="flex items-center gap-3 relative z-10 bg-white/50 p-2 rounded-lg hover:bg-white border border-transparent hover:border-gray-100 transition-colors">
+                            <div class="w-12 text-center text-[10px] font-bold text-gray-400 bg-white shadow-sm py-1 rounded">运营</div>
+                            <p class="text-[13px] text-text-desc">希望能从聊天中自动给高意向客户打标签</p>
+                        </div>
+                        <!-- item 4 -->
+                        <div class="flex items-center gap-3 relative z-10 bg-white/50 p-2 rounded-lg hover:bg-white border border-transparent hover:border-gray-100 transition-colors">
+                            <div class="w-12 text-center text-[10px] font-bold text-gray-400 bg-white shadow-sm py-1 rounded">实施</div>
+                            <p class="text-[13px] text-text-desc">最好能上传个文档就能自动生成知识库</p>
+                        </div>
+                        <!-- item 5 -->
+                        <div class="flex items-center gap-3 relative z-10 bg-white/50 p-2 rounded-lg hover:bg-white border border-transparent hover:border-gray-100 transition-colors">
+                            <div class="w-12 text-center text-[10px] font-bold text-gray-400 bg-white shadow-sm py-1 rounded">CEO</div>
+                            <p class="text-[13px] text-text-desc">需要看到每个月机器帮我省了多少钱</p>
+                        </div>
+
+                        <div class="text-center text-[11px] text-gray-400 mt-4 pt-2 border-t border-gray-100/50">
+                            ... 共收集 42 条原始反馈
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 中间过滤图标 (仅在大屏显示) -->
+                <div class="hidden lg:flex flex-col items-center justify-center px-4 relative z-10">
+                    <div class="w-[1px] h-12 bg-gray-200 mb-4"></div>
+                    <div class="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-brand-blue relative">
+                        <i data-lucide="filter" class="w-5 h-5"></i>
+                        <div class="absolute -bottom-8 w-24 text-center text-[10px] text-gray-400 font-bold leading-tight">
+                            优先级排序<br>产品化定义
+                        </div>
+                    </div>
+                    <div class="w-[1px] h-12 bg-gray-200 mt-4"></div>
+                </div>
+
+                <!-- 右侧：最终设计需求 -->
+                <div class="w-full lg:flex-1 bg-white rounded-[24px] border border-brand-blue/20 shadow-floating p-8 relative overflow-hidden">
+                    <!-- 装饰光晕 -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+
+                    <div class="flex justify-between items-center mb-8 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-brand-blue"></i>
+                            <h3 class="text-lg font-bold text-text-main">最终设计需求</h3>
+                        </div>
+                        <span class="px-3 py-1 bg-[#EFF6FF] text-brand-blue text-xs font-bold rounded-full border border-blue-100">Ready for Design</span>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        
+                        <!-- Requirement 1 -->
+                        <div class="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-brand-blue/30 hover:bg-[#F8FAFC] transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold shrink-0">机</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-sm font-bold text-text-main">AI 客服机器人 (AI Core)</h4>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-1.5 py-0.5 bg-red-50 text-red-500 text-[10px] font-bold rounded">P0</span>
+                                        <span class="text-[11px] text-gray-400">效率</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 text-[12px] text-text-desc">
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>大模型多轮对话理解</span>
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>文档一键生成 RAG 知识库</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Requirement 2 -->
+                        <div class="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-brand-blue/30 hover:bg-[#F8FAFC] transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center font-bold shrink-0">工</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-sm font-bold text-text-main">人工工作台 (Agent Workspace)</h4>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-1.5 py-0.5 bg-red-50 text-red-500 text-[10px] font-bold rounded">P0</span>
+                                        <span class="text-[11px] text-gray-400">体验</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 text-[12px] text-text-desc">
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>全渠道会话一站式聚合</span>
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>AI 实时辅助回复推荐</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Requirement 3 -->
+                        <div class="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-brand-blue/30 hover:bg-[#F8FAFC] transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center font-bold shrink-0">数</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-sm font-bold text-text-main">数据洞察中心 (Analytics)</h4>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-1.5 py-0.5 bg-orange-50 text-orange-500 text-[10px] font-bold rounded">P1</span>
+                                        <span class="text-[11px] text-gray-400">决策</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 text-[12px] text-text-desc">
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>AI 解决率与 ROI 看板</span>
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>高频转人工原因聚类</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Requirement 4 -->
+                        <div class="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-brand-blue/30 hover:bg-[#F8FAFC] transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-pink-50 text-pink-500 flex items-center justify-center font-bold shrink-0">营</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-sm font-bold text-text-main">运营与增长 (Growth)</h4>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-1.5 py-0.5 bg-orange-50 text-orange-500 text-[10px] font-bold rounded">P1</span>
+                                        <span class="text-[11px] text-gray-400">转化</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 text-[12px] text-text-desc">
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>意向客户自动识别打标</span>
+                                    <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>流失用户挽回自动触达</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
+        <!-- 底部页码指示器 -->
+        <footer class="bg-white border-t border-gray-100 px-10 py-5 flex justify-between items-center text-[12px] text-gray-400 font-bold">
+            <span>04 / 08 Requirement Pool</span>
+            <div class="flex gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                <div class="w-4 h-1.5 rounded-full bg-brand-blue"></div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

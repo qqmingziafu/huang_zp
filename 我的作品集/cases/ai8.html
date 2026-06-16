@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 核心业务流程</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1677FF',
+                        },
+                        role: {
+                            cyan: '#06B6D4',   // C端客户
+                            purple: '#8B5CF6', // AI系统
+                            blue: '#3B82F6',   // 客服坐席
+                            green: '#10B981',  // 协同部门
+                            orange: '#F97316', // 自动化
+                            slate: '#64748B'   // 知识库/管理
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 8px 30px -6px rgba(0,0,0,0.04)',
+                        'card': '0 10px 24px -6px rgba(0,0,0,0.06)',
+                        'float': '0 4px 12px -2px rgba(0,0,0,0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fff;
+        }
+        /* 模拟精细网格背景 */
+        .bg-grid {
+            background-size: 24px 24px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        }
+        /* 定制水平滚动条 */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex justify-center">
+
+    <!-- 主画布区 -->
+    <div class="max-w-[1440px] w-full relative z-10 bg-white overflow-hidden flex flex-col">
+        
+        <!-- 全局网格背景 -->
+        <div class="absolute inset-0 bg-grid z-0 opacity-80 pointer-events-none"></div>
+
+        <div class="relative z-10 p-10 lg:p-14 flex-1 flex flex-col">
+            
+            <!-- ================= 头部区域 ================= -->
+            <header class="flex justify-between items-end mb-16">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs font-bold tracking-widest uppercase">Phase 02</span>
+                        <span class="text-xs font-bold text-[#10B981] tracking-widest uppercase">User Flow</span>
+                    </div>
+                    <h1 class="text-[36px] font-black tracking-tight text-text-main leading-[1.2]">
+                        核心业务流程：<br>
+                        <span class="text-brand-blue">智能接待与服务闭环</span>
+                    </h1>
+                </div>
+                
+                <!-- 右侧图例 -->
+                <div class="flex items-center gap-5 text-[13px] font-medium text-text-desc bg-white/80 backdrop-blur px-5 py-2.5 rounded-full shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-full bg-role-cyan"></div> 访客端 (C端)</div>
+                    <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-full bg-role-purple"></div> AI 自动化</div>
+                    <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-full bg-role-blue"></div> 客服与协同端 (B端)</div>
+                </div>
+            </header>
+
+            <!-- ================= 水平流程图区域 ================= -->
+            <main class="flex-1 w-full overflow-x-auto custom-scrollbar pb-10">
+                <div class="min-w-[1200px] relative pt-6">
+                    
+                    <!-- 背景贯穿线 -->
+                    <div class="absolute top-[40px] left-[24px] right-[24px] h-[3px] bg-gray-100 z-0"></div>
+
+                    <!-- 步骤卡片容器 -->
+                    <div class="flex gap-5 relative z-10">
+
+                        <!-- Step 1 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <!-- 数字节点 -->
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-cyan group-hover:text-white">1</div>
+                            <!-- 箭头 -->
+                            <i data-lucide="arrow-right" class="absolute top-1 right-[-14px] w-5 h-5 text-gray-300"></i>
+                            
+                            <!-- 卡片本体 -->
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-cyan p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <!-- 角色标识 -->
+                                <div class="flex items-center gap-2 mb-4 bg-cyan-50 w-max px-3 py-1.5 rounded-lg border border-cyan-100">
+                                    <i data-lucide="user" class="w-4 h-4 text-role-cyan"></i>
+                                    <span class="text-xs font-bold text-role-cyan">End User 访客</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">多渠道入口</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">发起全渠道咨询</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    客户通过微信公众号、企业官网、APP 或小程序等多渠道入口发起服务咨询，系统统一下发并聚合消息。
+                                </p>
+                                <!-- 底部操作 Tag -->
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> 统一渠道聚合</span>
+                                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-purple group-hover:text-white">2</div>
+                            <i data-lucide="arrow-right" class="absolute top-1 right-[-14px] w-5 h-5 text-gray-300"></i>
+                            
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-purple p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <div class="flex items-center gap-2 mb-4 bg-purple-50 w-max px-3 py-1.5 rounded-lg border border-purple-100">
+                                    <i data-lucide="bot" class="w-4 h-4 text-role-purple"></i>
+                                    <span class="text-xs font-bold text-role-purple">AI 大模型</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">首问拦截</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">意图识别与接待</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    AI 结合 RAG 知识库与大语言模型，秒级响应用户提问，自动解决高频重复的售前与售后问题。
+                                </p>
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> 语义匹配检索</span>
+                                    <i data-lucide="brain-circuit" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-blue group-hover:text-white">3</div>
+                            <i data-lucide="arrow-right" class="absolute top-1 right-[-14px] w-5 h-5 text-gray-300"></i>
+                            
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-blue p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <div class="flex items-center gap-2 mb-4 bg-blue-50 w-max px-3 py-1.5 rounded-lg border border-blue-100">
+                                    <i data-lucide="headset" class="w-4 h-4 text-role-blue"></i>
+                                    <span class="text-xs font-bold text-role-blue">Agent 客服坐席</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">人工兜底</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">智能路由接管</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    当遇到复杂情绪或高意向线索时，系统根据技能组策略自动路由给对应的人工客服接管会话。
+                                </p>
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> AI辅助推荐回复</span>
+                                    <i data-lucide="zap" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-green group-hover:text-white">4</div>
+                            <i data-lucide="arrow-right" class="absolute top-1 right-[-14px] w-5 h-5 text-gray-300"></i>
+                            
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-green p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <div class="flex items-center gap-2 mb-4 bg-emerald-50 w-max px-3 py-1.5 rounded-lg border border-emerald-100">
+                                    <i data-lucide="users" class="w-4 h-4 text-role-green"></i>
+                                    <span class="text-xs font-bold text-role-green">Support 售后/技术</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">跨部协同</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">工单创建与流转</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    一线客服遇无法即时解决的技术故障或退款审核，一键生成工单，连同聊天记录流转至二线协同部门。
+                                </p>
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> SLA超时提醒</span>
+                                    <i data-lucide="clock" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-orange group-hover:text-white">5</div>
+                            <i data-lucide="arrow-right" class="absolute top-1 right-[-14px] w-5 h-5 text-gray-300"></i>
+                            
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-orange p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <div class="flex items-center gap-2 mb-4 bg-orange-50 w-max px-3 py-1.5 rounded-lg border border-orange-100">
+                                    <i data-lucide="cpu" class="w-4 h-4 text-role-orange"></i>
+                                    <span class="text-xs font-bold text-role-orange">System 自动化</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">数据沉淀</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">评价邀约与打标</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    会话或工单结束后，系统自动推送满意度评价表单。同时AI提取对话特征，自动为用户打上业务标签。
+                                </p>
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> 客户画像补全</span>
+                                    <i data-lucide="tags" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="flex-1 flex flex-col relative group">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-black text-gray-400 border-4 border-white shadow-sm mb-4 transition-colors group-hover:bg-role-slate group-hover:text-white">6</div>
+                            
+                            <div class="bg-white rounded-2xl shadow-card border-t-[5px] border-role-slate p-6 flex-1 flex flex-col group-hover:-translate-y-1 transition-transform">
+                                <div class="flex items-center gap-2 mb-4 bg-slate-50 w-max px-3 py-1.5 rounded-lg border border-slate-200">
+                                    <i data-lucide="database" class="w-4 h-4 text-role-slate"></i>
+                                    <span class="text-xs font-bold text-role-slate">Manager 知识库</span>
+                                </div>
+                                <div class="text-[10px] font-bold text-gray-400 mb-1">持续进化</div>
+                                <h3 class="text-[17px] font-bold text-text-main mb-3">异常问题反哺</h3>
+                                <p class="text-[13px] text-text-desc leading-relaxed mb-6 flex-1">
+                                    管理后台定期聚类未被AI解决的高频长尾问题，一键抽取生成 QA 问答对，重新反哺训练知识库。
+                                </p>
+                                <div class="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                                    <span class="text-[11px] font-medium text-text-desc flex items-center gap-1.5"><div class="w-1 h-1 rounded-full border border-gray-400"></div> AI自我迭代机制</span>
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- ================= 底部总结栏 ================= -->
+            <div class="mt-4 bg-white rounded-2xl shadow-card border border-gray-100 p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <div class="flex flex-col md:flex-row gap-8 flex-1">
+                    <!-- Pain Point -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                            <i data-lucide="bell" class="w-5 h-5 text-red-500"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] font-bold text-gray-400 mb-0.5 tracking-wider">PAIN POINT 痛点解决</div>
+                            <div class="text-sm font-bold text-text-main">多渠道分散 & 重复解答耗费大量客服精力</div>
+                        </div>
+                    </div>
+
+                    <!-- Divider (Desktop) -->
+                    <div class="hidden md:block w-px h-10 bg-gray-100"></div>
+
+                    <!-- Solution -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] font-bold text-gray-400 mb-0.5 tracking-wider">SOLUTION 解决方案</div>
+                            <div class="text-sm font-bold text-text-main">AI大模型全渠道聚合拦截 + 人机协同闭环</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coverage Legend -->
+                <div class="flex flex-col items-end shrink-0">
+                    <div class="text-[11px] font-bold text-gray-400 mb-2">流程涵盖角色</div>
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-role-cyan border-2 border-white flex items-center justify-center text-white" title="访客"><i data-lucide="user" class="w-3.5 h-3.5"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-role-purple border-2 border-white flex items-center justify-center text-white" title="AI"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-role-blue border-2 border-white flex items-center justify-center text-white" title="客服"><i data-lucide="headset" class="w-3.5 h-3.5"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-role-green border-2 border-white flex items-center justify-center text-white" title="协同部门"><i data-lucide="users" class="w-3.5 h-3.5"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-role-orange border-2 border-white flex items-center justify-center text-white" title="自动化系统"><i data-lucide="cpu" class="w-3.5 h-3.5"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-role-slate border-2 border-white flex items-center justify-center text-white" title="运营管理"><i data-lucide="database" class="w-3.5 h-3.5"></i></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

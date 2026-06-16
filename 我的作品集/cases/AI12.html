@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 智能建单弹窗设计</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1677FF',
+                            emerald: '#059669', // 对应参考图标题的翠绿色
+                            red: '#EF4444',
+                            purple: '#8B5CF6'
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'mockup': '0 25px 50px -12px rgba(0,0,0,0.1)',
+                        'card': '0 8px 24px -6px rgba(0,0,0,0.05)',
+                        'modal': '0 20px 40px -10px rgba(0,0,0,0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFFFFF;
+        }
+        /* 隐藏滚动条 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* 右侧大背景微渐变 */
+        .mockup-bg {
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex flex-col lg:flex-row font-sans overflow-hidden">
+
+    <!-- ================= 左侧：设计亮点提炼区 ================= -->
+    <aside class="w-full lg:w-[420px] xl:w-[460px] h-screen bg-white flex flex-col shrink-0 overflow-y-auto no-scrollbar z-20 shadow-[1px_0_10px_rgba(0,0,0,0.02)] relative">
+        <div class="p-10 xl:p-14">
+            
+            <!-- 头部标题 -->
+            <header class="mb-10">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-[11px] font-bold text-gray-400 tracking-widest uppercase">PHASE 04 · DESIGN SOLUTION · Step 02</span>
+                </div>
+                <h1 class="text-[32px] xl:text-[38px] font-black tracking-tight text-text-main leading-[1.2]">
+                    页面 02：<br>
+                    <span class="text-[#2967FF]">智能化新建工单弹窗</span>
+                </h1>
+            </header>
+
+            <!-- 亮点卡片列表 -->
+            <div class="flex flex-col gap-6">
+                
+                <!-- Card 01: AI 智能提取 (Blue) -->
+                <div class="relative bg-white rounded-2xl p-6 border border-blue-100 shadow-card">
+                    <!-- 序号角标 -->
+                    <div class="absolute top-0 right-0 bg-brand-blue text-white text-[13px] font-black px-3 py-1 rounded-bl-xl rounded-tr-xl">01</div>
+                    
+                    <h3 class="text-[15px] font-bold text-text-main mb-4 pr-8">AI 会话摘要与智能填单</h3>
+                    <div class="bg-blue-50/50 rounded-xl p-4 mb-4 border border-blue-50">
+                        <ul class="text-[12px] text-gray-600 space-y-2 font-medium">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div>告别客服手动复制粘贴</li>
+                            <li class="flex items-center gap-2 text-brand-blue"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div>核心诉求与诉求人一键生成</li>
+                        </ul>
+                    </div>
+                    <p class="text-[12px] text-text-desc leading-relaxed">
+                        联动客服会话台上下文，AI大模型自动提取客户基础信息、核心诉求及情绪特征，自动预填入标准化表单，极大降低客服一线建单成本。
+                    </p>
+                </div>
+
+                <!-- Card 02: SLA 预警 (Red) -->
+                <div class="relative bg-white rounded-2xl p-6 border border-red-100 shadow-card">
+                    <div class="absolute top-0 right-0 bg-brand-red text-white text-[13px] font-black px-3 py-1 rounded-bl-xl rounded-tr-xl">02</div>
+                    
+                    <h3 class="text-[15px] font-bold text-text-main mb-4 pr-8">SLA 负载校验与阻断预警</h3>
+                    <div class="bg-red-50/50 rounded-xl p-4 mb-4 border border-red-50">
+                        <ul class="text-[12px] text-gray-600 space-y-2 font-medium">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-red"></div>流转目标部门负载实时检视</li>
+                            <li class="flex items-center gap-2 text-brand-red"><div class="w-1.5 h-1.5 rounded-full bg-brand-red"></div>操作即校验，源头把控SLA风险</li>
+                        </ul>
+                    </div>
+                    <p class="text-[12px] text-text-desc leading-relaxed">
+                        选中协同资源（处理部门/人员）的瞬间触发负载校验。当目标团队出现严重积压时，红字高亮预警并提示SLA风险，避免工单“石沉大海”。
+                    </p>
+                </div>
+
+                <!-- Card 03: 自动通知 (Purple) -->
+                <div class="relative bg-white rounded-2xl p-6 border border-purple-100 shadow-card">
+                    <div class="absolute top-0 right-0 bg-brand-purple text-white text-[13px] font-black px-3 py-1 rounded-bl-xl rounded-tr-xl">03</div>
+                    
+                    <h3 class="text-[15px] font-bold text-text-main mb-4 pr-8">节点流转与服务通知自动化</h3>
+                    <div class="bg-purple-50/50 rounded-xl p-4 mb-4 border border-purple-50">
+                        <ul class="text-[12px] text-gray-600 space-y-2 font-medium">
+                            <li class="flex items-center gap-2 text-brand-purple"><div class="w-1.5 h-1.5 rounded-full bg-brand-purple"></div>系统自动生成多渠道触达消息</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-purple"></div>进度透明化消除客户焦虑</li>
+                        </ul>
+                    </div>
+                    <p class="text-[12px] text-text-desc leading-relaxed">
+                        建单流转成功的同时，系统自动生成模板消息（短信/微信等），向客户实时同步工单编号与预期处理时效，形成完整的服务闭环。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+    <!-- ================= 右侧：高保真 Mockup 展示区 ================= -->
+    <main class="flex-1 h-screen mockup-bg flex items-center justify-center relative p-8 lg:p-12 overflow-hidden z-10">
+        
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[100px] opacity-80 -translate-y-1/3 translate-x-1/3"></div>
+
+        <!-- 底层背景窗口 (模拟被弹窗遮挡的底层页面) -->
+        <div class="w-full max-w-[1100px] aspect-[16/9] bg-white rounded-[24px] shadow-mockup relative overflow-hidden flex flex-col opacity-90">
+            <!-- 骨架屏模拟底层 UI -->
+            <div class="h-14 bg-gray-50 border-b border-gray-100 flex items-center px-6 gap-4">
+                <div class="w-32 h-4 bg-gray-200 rounded"></div>
+                <div class="w-64 h-6 bg-white border border-gray-200 rounded-full ml-auto"></div>
+            </div>
+            <div class="flex-1 flex p-6 gap-6">
+                <div class="w-64 bg-gray-50 rounded-xl"></div>
+                <div class="flex-1 bg-gray-50 rounded-xl flex flex-col gap-4 p-4">
+                    <div class="w-full h-12 bg-white rounded-lg"></div>
+                    <div class="w-full h-12 bg-white rounded-lg"></div>
+                    <div class="w-full h-12 bg-white rounded-lg"></div>
+                </div>
+                <div class="w-80 bg-gray-50 rounded-xl"></div>
+            </div>
+            
+            <!-- ！！！黑灰色半透明蒙层 ！！！ -->
+            <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm z-10 flex items-center justify-center">
+                
+                <!-- ====== 核心弹窗 Modal ====== -->
+                <div class="w-[850px] bg-white rounded-2xl shadow-modal flex flex-col overflow-hidden relative transform hover:scale-[1.01] transition-transform duration-300">
+                    
+                    <!-- 弹窗 Header -->
+                    <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-white">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-base font-bold text-gray-900">新建跨部门协同工单</h2>
+                            <span class="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-[10px]">关联会话: CS-88921</span>
+                        </div>
+                        <i data-lucide="x" class="w-5 h-5 text-gray-400 cursor-pointer"></i>
+                    </div>
+
+                    <!-- 弹窗 Body (左右分栏布局) -->
+                    <div class="flex flex-1 min-h-[460px]">
+                        
+                        <!-- 左侧：表单详情区 -->
+                        <div class="flex-[1.2] p-6 border-r border-gray-50 flex flex-col gap-5">
+                            
+                            <!-- 锚点 01：智能提取 -->
+                            <div class="relative bg-blue-50/40 border border-brand-blue/20 rounded-xl p-4 pt-8">
+                                <div class="absolute top-3 left-4 bg-brand-blue text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                                    01 AI 智能预填 <i data-lucide="sparkles" class="w-3 h-3"></i>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mt-2">
+                                    <div>
+                                        <div class="text-[11px] text-gray-500 mb-1">诉求客户</div>
+                                        <div class="text-[13px] font-medium text-gray-900">Liya <span class="text-gray-400 font-normal">159****2201</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-[11px] text-gray-500 mb-1">问题分类</div>
+                                        <div class="text-[13px] font-medium text-gray-900">售后服务 - 费用退款</div>
+                                    </div>
+                                    <div class="col-span-2">
+                                        <div class="text-[11px] text-gray-500 mb-1">问题摘要 (AI提取)</div>
+                                        <input type="text" value="退款申请已通过但迟迟未到账" class="w-full bg-white border border-gray-200 rounded-md px-3 py-1.5 text-[13px] text-gray-900 focus:outline-none focus:border-brand-blue">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 详情描述框 -->
+                            <div class="flex-1 flex flex-col">
+                                <div class="text-[12px] font-medium text-gray-700 mb-2">详细描述 <span class="text-red-500">*</span></div>
+                                <textarea class="flex-1 w-full bg-white border border-gray-200 rounded-lg p-3 text-[13px] text-gray-800 focus:outline-none focus:border-brand-blue resize-none" placeholder="请详细描述工单需处理的具体事项...">客户在3天前已通过系统发起退款审核，前端显示【已退款】，但客户表示银行卡至今未收到款项，情绪较为焦躁，要求财务核实打款通道是否异常。</textarea>
+                            </div>
+
+                            <!-- 附件上传 -->
+                            <div>
+                                <div class="text-[12px] font-medium text-gray-700 mb-2">附件说明</div>
+                                <div class="border border-dashed border-gray-300 rounded-lg p-3 flex items-center gap-3 bg-gray-50/50">
+                                    <div class="w-8 h-8 bg-white border border-gray-200 rounded flex items-center justify-center"><i data-lucide="image" class="w-4 h-4 text-brand-blue"></i></div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-[11px] font-medium text-gray-800 truncate">银行流水截图.jpg</div>
+                                        <div class="text-[10px] text-gray-400">1.2 MB</div>
+                                    </div>
+                                    <i data-lucide="x" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 右侧：流转配置与预警区 -->
+                        <div class="flex-[0.8] p-6 bg-gray-50/30 flex flex-col gap-6 relative">
+                            
+                            <div>
+                                <div class="text-[12px] font-medium text-gray-700 mb-2">工单优先级</div>
+                                <div class="flex gap-2">
+                                    <div class="flex-1 text-center py-1.5 border border-gray-200 bg-white rounded-md text-[12px] text-gray-500 cursor-pointer">常规</div>
+                                    <div class="flex-1 text-center py-1.5 border border-orange-200 bg-orange-50/50 text-orange-600 font-bold rounded-md text-[12px] cursor-pointer shadow-sm">高优</div>
+                                    <div class="flex-1 text-center py-1.5 border border-gray-200 bg-white rounded-md text-[12px] text-gray-500 cursor-pointer">紧急</div>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <div class="text-[12px] font-medium text-gray-700 mb-2">流转部门/处理组</div>
+                                <div class="w-full bg-white border border-brand-blue rounded-md px-3 py-2 text-[13px] text-gray-900 flex justify-between items-center shadow-[0_0_0_2px_rgba(22,119,255,0.1)]">
+                                    <span>财务部 - 退款结算组</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+
+                                <!-- 锚点 02：SLA 预警 -->
+                                <div class="mt-3 bg-red-50 border border-red-100 rounded-lg p-3 relative shadow-sm">
+                                    <div class="absolute -top-2.5 -right-2 bg-brand-red text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                                        02 冲突预警
+                                    </div>
+                                    <div class="flex gap-2 items-start">
+                                        <i data-lucide="alert-octagon" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                                        <div>
+                                            <div class="text-[11px] font-bold text-red-600">SLA 响应风险提示</div>
+                                            <p class="text-[10px] text-red-500/80 mt-1 leading-tight">检测到【财务部】当前存在高优工单积压，预计响应时间将超过 4H，存在客户投诉风险。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 锚点 03：自动通知 -->
+                            <div class="mt-auto relative">
+                                <div class="absolute -top-3 left-4 bg-brand-purple text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                                    03 服务闭环自动化
+                                </div>
+                                <div class="bg-purple-50/50 border border-purple-100 rounded-lg p-4 pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="text-[11px] font-bold text-gray-700 flex items-center gap-1.5"><i data-lucide="bell-ring" class="w-3.5 h-3.5 text-brand-purple"></i> 客户进度通知预览</div>
+                                    </div>
+                                    <div class="bg-white border border-gray-100 rounded p-2 text-[10px] text-gray-500 leading-relaxed shadow-sm">
+                                        【客服中台】尊敬的 Liya，您的退款核实工单 (TK-291) 已成功创建并流转至财务部，我们将于 24H 内为您反馈处理结果，请留意短信通知。
+                                    </div>
+                                    <div class="mt-2 text-right">
+                                        <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                                            <input type="checkbox" checked class="w-3 h-3 text-brand-purple rounded border-gray-300">
+                                            <span class="text-[10px] text-gray-600">提交同时发送通知</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 弹窗 Footer -->
+                    <div class="px-6 py-4 border-t border-gray-100 bg-gray-50/50 flex justify-end gap-3">
+                        <button class="px-5 py-2 bg-white border border-gray-200 text-gray-600 rounded-lg text-[13px] font-medium hover:bg-gray-50 transition-colors">取消</button>
+                        <button class="px-6 py-2 bg-brand-blue text-white rounded-lg text-[13px] font-bold shadow-sm shadow-blue-500/30 hover:bg-blue-600 transition-colors flex items-center gap-1.5">
+                            确认创建并流转 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

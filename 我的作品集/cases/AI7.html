@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 信息架构与站点地图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1677FF', // 品牌主色科技蓝
+                        },
+                        module: {
+                            blue: '#3B82F6',
+                            purple: '#8B5CF6',
+                            green: '#10B981',
+                            orange: '#F97316',
+                            slate: '#475569'
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            desc: '#595959',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 8px 30px -6px rgba(0,0,0,0.04)',
+                        'node': '0 12px 32px -8px rgba(0,0,0,0.1)',
+                        'card': '0 4px 16px -4px rgba(0,0,0,0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fff;
+        }
+        /* 模拟精细网格背景 */
+        .bg-grid {
+            background-size: 24px 24px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        }
+        /* 连接线颜色 */
+        .line-color {
+            background-color: #D1D5DB; /* Tailwind gray-300 */
+        }
+        /* 底部水印文字 */
+        .watermark {
+            background: linear-gradient(180deg, #E5E7EB 0%, rgba(229, 231, 235, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-text-main flex justify-center">
+
+    <div class="max-w-[1440px] w-full relative z-10 bg-white overflow-hidden flex flex-col">
+        
+        <div class="absolute inset-0 bg-grid z-0 opacity-80 pointer-events-none"></div>
+
+        <div class="relative z-10 p-10 lg:p-14 flex-1 flex flex-col">
+            
+            <header class="flex justify-between items-end mb-16">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-gray-400 tracking-widest uppercase">Phase 02</span>
+                        <span class="text-xs font-bold text-brand-blue tracking-widest uppercase">Structure & Flow</span>
+                    </div>
+                    <h1 class="text-[36px] font-black tracking-tight text-text-main leading-tight whitespace-nowrap">
+                        信息架构与
+                        <span class="text-brand-blue">站点地图</span>
+                    </h1>
+                </div>
+                
+                <div class="flex items-center gap-6 text-[13px] font-medium text-text-desc bg-white px-5 py-2.5 rounded-full shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-brand-blue"></div> Level 1: 模块</div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-400"></div> Level 2: 页面</div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-gray-200 border border-gray-300"></div> Level 3: 功能</div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-auto no-scrollbar pb-10">
+                <div class="min-w-[1100px] w-full flex flex-col items-center pt-4 relative">
+                    
+                    <div class="bg-white border-[2.5px] border-text-main rounded-full px-8 py-4 shadow-node flex items-center justify-center z-20 relative hover:-translate-y-1 transition-transform">
+                        <span class="text-[18px] font-black text-text-main tracking-wide">SmartSupport SaaS</span>
+                    </div>
+
+                    <div class="w-px h-10 line-color relative z-10"></div>
+
+                    <div class="w-full relative h-10">
+                        <div class="absolute top-0 left-[10%] right-[10%] h-px line-color"></div>
+                        
+                        <div class="flex w-full h-full">
+                            <div class="flex-1 relative flex justify-center"><div class="absolute top-[-3px] w-1.5 h-1.5 rounded-full line-color"></div><div class="w-px h-full line-color"></div></div>
+                            <div class="flex-1 relative flex justify-center"><div class="absolute top-[-3px] w-1.5 h-1.5 rounded-full line-color"></div><div class="w-px h-full line-color"></div></div>
+                            <div class="flex-1 relative flex justify-center"><div class="absolute top-[-3px] w-1.5 h-1.5 rounded-full line-color"></div><div class="w-px h-full line-color"></div></div>
+                            <div class="flex-1 relative flex justify-center"><div class="absolute top-[-3px] w-1.5 h-1.5 rounded-full line-color"></div><div class="w-px h-full line-color"></div></div>
+                            <div class="flex-1 relative flex justify-center"><div class="absolute top-[-3px] w-1.5 h-1.5 rounded-full line-color"></div><div class="w-px h-full line-color"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="flex w-full gap-4">
+                        
+                        <div class="flex-1 bg-white rounded-2xl shadow-card border border-gray-100 pb-3 overflow-hidden group hover:shadow-node transition-shadow">
+                            <div class="border-t-[5px] border-module-blue pt-6 pb-5 flex flex-col items-center bg-gradient-to-b from-blue-50/50 to-transparent">
+                                <div class="w-10 h-10 rounded-xl bg-blue-50 text-module-blue flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-[17px] font-bold text-text-main tracking-wide">客服中心</h2>
+                                <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-1">Workspace</span>
+                            </div>
+                            <div class="px-3 space-y-2.5">
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-blue/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-blue shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">会话工作台</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">实时接线</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">AI辅助回复</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-blue/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-blue shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">客户画像</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">行为轨迹</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">智能打标</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-blue/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-blue shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">快捷库</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">个人话术</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">团队统一语</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-blue/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-blue shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">质检中心</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">自动评分</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">违规拦截</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-white rounded-2xl shadow-card border border-gray-100 pb-3 overflow-hidden group hover:shadow-node transition-shadow">
+                            <div class="border-t-[5px] border-module-purple pt-6 pb-5 flex flex-col items-center bg-gradient-to-b from-purple-50/50 to-transparent">
+                                <div class="w-10 h-10 rounded-xl bg-purple-50 text-module-purple flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-[17px] font-bold text-text-main tracking-wide">AI 中心</h2>
+                                <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-1">AI Hub</span>
+                            </div>
+                            <div class="px-3 space-y-2.5">
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-purple/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-purple shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">机器人配置</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">人设边界</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">兜底策略</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-purple/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-purple shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">RAG知识库</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">文档解析</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">QA管理</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-purple/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-purple shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">自学习迭代</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">未命中聚合</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">自动提取</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-purple/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-purple shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">沙盒测试</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">意图评测</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">命中率分析</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-white rounded-2xl shadow-card border border-gray-100 pb-3 overflow-hidden group hover:shadow-node transition-shadow">
+                            <div class="border-t-[5px] border-module-green pt-6 pb-5 flex flex-col items-center bg-gradient-to-b from-green-50/50 to-transparent">
+                                <div class="w-10 h-10 rounded-xl bg-green-50 text-module-green flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="ticket" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-[17px] font-bold text-text-main tracking-wide">工单协同</h2>
+                                <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-1">Ticketing</span>
+                            </div>
+                            <div class="px-3 space-y-2.5">
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-green/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-green shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">工单大厅</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">状态看板</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">待办提醒</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-green/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-green shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">智能流转</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">路由规则</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">跨部指派</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-green/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-green shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">SLA 管理</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">响应时效</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">超时升级</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-green/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-green shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">服务回访</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">满意度邀评</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">解决率确认</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-white rounded-2xl shadow-card border border-gray-100 pb-3 overflow-hidden group hover:shadow-node transition-shadow">
+                            <div class="border-t-[5px] border-module-orange pt-6 pb-5 flex flex-col items-center bg-gradient-to-b from-orange-50/50 to-transparent">
+                                <div class="w-10 h-10 rounded-xl bg-orange-50 text-module-orange flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="pie-chart" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-[17px] font-bold text-text-main tracking-wide">数据与运营</h2>
+                                <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-1">Data & Growth</span>
+                            </div>
+                            <div class="px-3 space-y-2.5">
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-orange/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-orange shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">数据大盘</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">排队监控</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">AI拦截趋势</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-orange/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-orange shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">漏斗分析</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">咨询转化率</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">流失归因</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-orange/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-orange shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">客服绩效</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">接待时长</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">用户评级</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-orange/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-orange shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">主动营销</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">智能邀约</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">召回触达</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-white rounded-2xl shadow-card border border-gray-100 pb-3 overflow-hidden group hover:shadow-node transition-shadow">
+                            <div class="border-t-[5px] border-module-slate pt-6 pb-5 flex flex-col items-center bg-gradient-to-b from-slate-50/50 to-transparent">
+                                <div class="w-10 h-10 rounded-xl bg-slate-50 text-module-slate flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="settings" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-[17px] font-bold text-text-main tracking-wide">系统设置</h2>
+                                <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-1">Settings</span>
+                            </div>
+                            <div class="px-3 space-y-2.5">
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-slate/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-slate shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">渠道接入</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">Web/SDK</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">微信生态</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-slate/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-slate shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">组织架构</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">坐席管理</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">专业技能组</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-slate/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-slate shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">基础/权限</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">角色授权</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">数据范围隔离</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-100 rounded-xl p-3 shadow-sm hover:border-module-slate/30 transition-colors">
+                                    <div class="flex items-center gap-2 mb-2.5">
+                                        <svg class="w-3.5 h-3.5 text-module-slate shrink-0" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <h3 class="text-[13px] font-bold text-text-main">平台日志</h3>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pl-5">
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">安全审计</span>
+                                        <span class="text-[10px] bg-gray-50 text-text-desc px-1.5 py-0.5 rounded font-medium border border-gray-100">登录记录</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="mt-16 text-[32px] font-black tracking-[0.3em] watermark">
+                        SYSTEM ARCHITECTURE
+                    </div>
+                </div>
+            </main>
+
+            <footer class="mt-auto pt-6 border-t border-gray-200/60 flex justify-between items-center text-[12px] font-bold text-gray-400">
+                <span>05 / 08 Information Architecture</span>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

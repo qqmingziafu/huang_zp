@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智能客服云平台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="startup-splash" id="startup-splash" aria-label="开屏加载动画">
+      <iframe src="./logo-loader.html" title="智能客服云平台开屏动效"></iframe>
+    </div>
+
+    <section class="login-screen" id="login-screen">
+      <div class="login-visual">
+        <div class="login-topnav">
+          <div class="login-brand hero-brand">
+            <div class="brand-mark"><img src="./logo.svg" alt="智能客服云平台 logo" /></div>
+            <div>
+              <strong>智能客服云平台</strong>
+              <span>AI驱动的客户服务与增长中台</span>
+            </div>
+          </div>
+        </div>
+        <div class="login-hero-layout">
+          <div class="login-copy">
+            <p class="eyebrow">AI Customer Service SaaS</p>
+            <h1>AI全能客服助手，让服务更简单</h1>
+            <p>统一接待、知识检索、人工协同与工单闭环，帮助团队更快响应客户，更稳定地提升服务体验。</p>
+          </div>
+          <div class="login-hero-graphic" aria-hidden="true">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <div class="hero-card">
+              <img src="./logo.svg" alt="" />
+              <strong>AI</strong>
+            </div>
+            <span class="hero-bubble bubble-chat"></span>
+            <span class="hero-panel panel-user"></span>
+            <span class="hero-panel panel-chart"></span>
+            <span class="hero-paper"></span>
+            <span class="hero-module module-doc">AI</span>
+            <span class="hero-module module-chat">KB</span>
+            <span class="hero-module module-play">✓</span>
+            <span class="hero-chip chip-knowledge">智能接待</span>
+            <span class="hero-chip chip-chat">知识检索</span>
+            <span class="hero-chip chip-route">工单闭环</span>
+            <span class="hero-dot dot-one"></span>
+            <span class="hero-dot dot-two"></span>
+          </div>
+          <div class="login-feature-cards">
+            <article>
+              <span>接</span>
+              <strong>全渠道接待</strong>
+              <small>网页、APP、公众号会话统一进入工作台</small>
+            </article>
+            <article>
+              <span>知</span>
+              <strong>智能知识库</strong>
+              <small>语义检索与推荐回复降低重复劳动</small>
+            </article>
+            <article>
+              <span>单</span>
+              <strong>工单闭环</strong>
+              <small>复杂问题自动流转并沉淀服务数据</small>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-panel">
+        <form class="login-card" id="login-form">
+          <div class="login-card-title">
+            <h2>欢迎登录</h2>
+            <span>AI全能客服助手</span>
+          </div>
+          <label class="login-field account-field">
+            <span>账号</span>
+            <input id="login-account" type="text" autocomplete="username" value="admin@ai-service.com" placeholder="请输入手机号/账号" />
+          </label>
+          <label class="login-field password-field">
+            <span>密码</span>
+            <input id="login-password" type="password" autocomplete="current-password" value="123456" placeholder="请输入密码" />
+            <button class="password-eye" type="button" aria-label="显示密码"></button>
+          </label>
+          <div class="verification-field is-hidden" id="verification-field">
+            <input id="login-code" type="text" autocomplete="one-time-code" placeholder="请输入短信验证码" />
+            <button type="button" id="send-code-btn">获取验证码</button>
+          </div>
+          <div class="login-options">
+            <button type="button" id="sso-login-btn">短信验证码登录</button>
+            <button type="button" id="forgot-password-btn">忘记密码?</button>
+          </div>
+          <button class="primary-btn login-submit" type="submit">登录</button>
+          <div class="remember-group" id="remember-group">
+            <label class="remember-line" id="remember-line"><input id="remember-login" type="checkbox" /> 7天内自动登录</label>
+            <p class="remember-helper" id="remember-helper">勾选后，本设备 7 天内可免输入账号密码进入原型演示。</p>
+          </div>
+          <div class="login-divider"><span>其他登录方式</span></div>
+          <div class="social-login">
+            <button class="wechat-login" type="button" data-provider="wechat" aria-label="微信登录" title="微信登录">
+              <svg viewBox="0 0 192 157" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M134.28 50.9688C164.816 50.9688 192.004 73.1145 192.004 100.29C192.004 115.61 181.84 129.181 168.2 139.415L173.312 156.404L154.671 146.193C147.874 147.897 141.047 149.601 134.28 149.601C101.946 149.6 76.4805 127.501 76.4805 100.29C76.4805 73.1148 101.947 50.9689 134.28 50.9688ZM115.54 78.1895C112.157 78.1897 108.744 81.5976 108.744 84.9805C108.744 88.4164 112.157 91.783 115.54 91.7832C120.68 91.7832 124.047 88.4165 124.047 84.9805C124.047 81.5975 120.68 78.1895 115.54 78.1895ZM152.92 78.1895C149.56 78.1895 146.171 81.5976 146.171 84.9805C146.171 88.4165 149.56 91.7831 152.92 91.7832C158.013 91.7832 161.427 88.4165 161.427 84.9805C161.426 81.5975 158.013 78.1895 152.92 78.1895Z" fill="#07C160"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M67.9561 0C101.371 0 130.644 20.3375 136.524 47.7246C134.364 47.4772 132.184 47.3193 129.98 47.3193C97.6998 47.3193 72.2043 71.4113 72.2041 101.102C72.2041 106.042 72.9735 110.8 74.3018 115.341C72.2046 115.506 70.0888 115.61 67.9561 115.61C59.4735 115.61 52.6535 113.883 44.1533 112.203L20.3955 124.118L27.1934 103.675C10.1809 91.7835 0 76.4567 0 57.7939C0.000296979 25.4604 30.6002 0.000213736 67.9561 0ZM45.8799 28.8916C40.7866 28.8917 35.6465 32.263 35.6465 37.374C35.6466 42.467 40.7867 45.8798 45.8799 45.8799C50.9732 45.8799 54.3622 42.4671 54.3623 37.374C54.3623 32.2629 50.9732 28.8916 45.8799 28.8916ZM93.4404 28.8916C88.3473 28.8916 83.2365 32.2631 83.2363 37.374C83.2364 42.4671 88.3471 45.8799 93.4404 45.8799C98.5575 45.8799 101.947 42.4671 101.947 37.374C101.947 32.2629 98.5576 28.8916 93.4404 28.8916Z" fill="#07C160"/>
+              </svg>
+            </button>
+            <button class="dingtalk-login" type="button" data-provider="dingtalk" aria-label="钉钉登录" title="钉钉登录">
+              <svg viewBox="0 0 150 200" aria-hidden="true">
+                <path d="M149.647 74.7712C149.061 76.9 148.299 78.9703 147.362 80.9624H147.381L147.264 81.2163C140.604 96.1765 123.203 125.55 123.203 125.55L123.125 125.355L118.047 134.651H142.538L95.743 200L106.367 155.549H87.0715L93.7704 126.156C88.341 127.523 81.9545 129.417 74.3572 131.976C74.3572 131.976 64.1038 138.284 44.7882 119.828C44.7882 119.828 31.7615 107.797 39.3197 104.77C42.5227 103.5 54.9049 101.879 64.6506 100.473C77.7946 98.5983 85.8997 97.6022 85.8997 97.6022C85.8997 97.6022 45.3351 98.2467 35.7066 96.6453C26.0781 95.0633 13.8912 78.189 11.2741 63.3655C11.2741 63.3655 7.25083 55.2213 19.9065 59.0688C32.5817 62.9163 85.0208 74.0681 85.0208 74.0681C85.0208 74.0681 16.8402 52.1355 12.3092 46.7842C7.77815 41.4329 -1.04958 17.5277 0.102715 2.86039C0.102715 2.86039 0.610505 -0.811323 4.18456 0.165196C4.18456 0.165196 54.612 24.3829 89.0831 37.6049C123.554 50.866 153.514 57.6236 149.647 74.7712Z" fill="#1677FF"/>
+              </svg>
+            </button>
+            <button class="enterprise-login" type="button" data-provider="wecom" aria-label="企业微信登录" title="企业微信登录">
+              <svg viewBox="0 0 201 169" aria-hidden="true">
+                <path d="M135.245 134.657C136.908 132.994 136.908 132.993 137.74 133.825C143.562 139.647 150.216 142.974 156.87 144.637L159.365 145.468C164.355 146.3 166.85 151.291 167.681 156.281C167.681 162.103 163.523 167.094 157.701 167.925C151.879 168.757 146.889 165.43 145.225 159.608C143.562 151.291 140.235 143.805 133.582 137.983C132.75 137.151 133.581 135.488 132.75 134.657H135.245Z" fill="#1AAD19"/>
+                <path d="M21.3015 24.0396C55.4016 -9.22869 115.284 -7.5653 147.72 26.5348C159.364 39.0103 166.018 53.1488 166.018 69.7828C162.692 68.1196 160.197 68.1197 156.87 68.1197H156.038C145.226 68.9515 136.077 77.2686 134.414 88.0807V93.9029C130.255 98.0615 125.265 100.557 118.611 101.388C110.294 103.052 104.472 109.706 101.977 117.191C100.314 125.508 102.809 133.825 109.463 138.815C101.977 141.31 95.3231 142.142 87.8377 142.142C78.6889 142.974 68.7081 141.31 59.5594 139.647C57.8961 139.647 56.2324 139.646 54.5691 140.478L33.7771 151.291C31.2821 152.954 28.7868 152.954 26.2918 151.291C23.7966 149.627 23.7967 147.132 23.7967 143.805L26.2918 126.339C26.2918 124.676 25.4594 123.845 24.6277 122.181C15.479 113.033 7.16228 102.22 3.00369 89.7447C-4.48169 63.9617 2.17223 42.3372 21.3015 24.0396Z" fill="#0082EF"/>
+                <path d="M190.138 111.369C195.96 112.201 200.119 117.191 200.119 123.012C200.119 128.834 196.791 132.993 190.97 134.657C184.316 136.32 177.662 138.815 172.672 142.973L171.009 144.637C170.177 145.469 167.682 147.132 166.85 145.468C166.019 144.637 166.85 142.142 167.681 141.31C173.503 135.488 176.831 128.834 178.494 120.517C178.494 114.695 184.317 111.369 190.138 111.369Z" fill="#1AAD19"/>
+                <path d="M141.066 100.556C142.729 100.556 144.393 101.388 146.056 101.388C146.056 102.22 146.057 104.715 145.225 104.715C139.403 110.537 136.076 118.023 134.413 125.508C133.581 131.33 127.759 134.656 121.937 133.825C116.115 132.993 111.957 128.003 111.957 122.181C111.957 117.191 115.284 113.032 120.274 111.369C128.591 109.705 135.244 106.378 141.066 100.556Z" fill="#1AAD19"/>
+                <path d="M156.037 78.9322C161.027 78.9322 166.018 82.2589 166.849 88.0807C168.513 96.3977 171.84 103.052 177.662 108.874C178.494 109.705 177.662 111.368 178.494 113.032C176.831 113.032 175.166 113.864 174.335 113.032C168.513 107.21 161.028 103.884 152.711 102.22C146.889 100.557 143.562 95.566 144.393 90.5758C146.057 83.9225 150.215 78.9325 156.037 78.9322Z" fill="#1AAD19"/>
+              </svg>
+            </button>
+          </div>
+          <p class="login-tip" id="login-tip">还没有账号？ <button type="button" id="register-btn">立即注册</button></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="app-shell is-hidden" id="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark"><img src="./logo.svg" alt="智能客服云平台 logo" /></div>
+          <div>
+            <strong>智能客服云平台</strong>
+            <span>客户服务与增长中台</span>
+          </div>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <button class="nav-item active" data-view="dashboard">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8v8.7a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H4.5A1.5 1.5 0 0 1 3 19.5v-8.7Z"/></svg></span>首页
+          </button>
+          <button class="nav-item" data-view="workspace">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H12l-4.5 4v-4h-1A2.5 2.5 0 0 1 4 13.5v-7Z"/><path d="M8 9h8M8 12h5"/></svg></span>客服中心
+          </button>
+          <button class="nav-item" data-view="ai">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7V5a4 4 0 0 1 8 0v2h1.5A2.5 2.5 0 0 1 20 9.5v6A4.5 4.5 0 0 1 15.5 20h-7A4.5 4.5 0 0 1 4 15.5v-6A2.5 2.5 0 0 1 6.5 7H8Z"/><path d="M9 13h.01M15 13h.01M9 16h6"/></svg></span>AI中心
+          </button>
+          <button class="nav-item" data-view="tickets">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3 3V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 5 20V5A1.5 1.5 0 0 1 6.5 3.5Z"/><path d="M14 4v4h4M8 12h8M8 16h6"/></svg></span>工单中心
+          </button>
+          <button class="nav-item" data-view="customers">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>客户中心
+          </button>
+          <button class="nav-item" data-view="growth">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5 9 12l4 3 7-8"/><path d="M15 7h5v5"/></svg></span>运营增长
+          </button>
+          <button class="nav-item" data-view="analytics">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9M12 20V4M19 20v-7"/><path d="M3 20h18"/></svg></span>数据分析
+          </button>
+          <button class="nav-item" data-view="settings">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"/><path d="m19 12.7 1.4 1.1-1.8 3.1-1.7-.7a7.3 7.3 0 0 1-1.7 1l-.2 1.8H9l-.2-1.8a7.3 7.3 0 0 1-1.7-1l-1.7.7-1.8-3.1L5 12.7a6.7 6.7 0 0 1 0-1.4l-1.4-1.1 1.8-3.1 1.7.7a7.3 7.3 0 0 1 1.7-1L9 5h6l.2 1.8a7.3 7.3 0 0 1 1.7 1l1.7-.7 1.8 3.1-1.4 1.1a6.7 6.7 0 0 1 0 1.4Z"/></svg></span>系统设置
+          </button>
+        </nav>
+        <section class="side-status">
+          <p>今日AI接待</p>
+          <strong>9,842</strong>
+          <span>自动解决率 68.5%</span>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI First Customer Service SaaS</p>
+            <h1 id="page-title">首页</h1>
+          </div>
+          <div class="top-actions">
+            <label class="search">
+              <span>⌕</span>
+              <input id="global-search" type="search" placeholder="搜索会话、客户、工单" />
+            </label>
+            <button class="ghost-btn notify-btn" id="notify-btn" aria-label="通知">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
+              <span id="notify-count">4</span>
+            </button>
+            <button class="ghost-btn" id="logout-btn">退出</button>
+            <button class="primary-btn" id="quick-create">新建工单</button>
+          </div>
+          <div class="search-results is-hidden" id="search-results"></div>
+          <div class="notify-panel is-hidden" id="notify-panel">
+            <div class="panel-head"><h2>通知中心</h2><button id="mark-read-btn">全部已读</button></div>
+            <div id="notify-list"></div>
+          </div>
+        </header>
+
+        <section class="view active" id="dashboard">
+          <div class="metric-grid">
+            <article class="metric metric-consult"><span>今日咨询量</span><strong>12,345</strong><em>+12.3%</em></article>
+            <article class="metric metric-ai"><span>AI解决率</span><strong>68.5%</strong><em>+8.2%</em></article>
+            <article class="metric metric-human"><span>转人工率</span><strong>31.5%</strong><em class="down">-5.6%</em></article>
+            <article class="metric metric-satisfaction"><span>用户满意度</span><strong>4.6/5</strong><em>+0.3</em></article>
+          </div>
+          <div class="dashboard-grid">
+            <section class="panel wide">
+              <div class="panel-head">
+                <h2>服务主链路</h2>
+                <span>用户咨询 → AI → 人工 → 工单 → 数据优化</span>
+              </div>
+              <div class="flow">
+                <div>渠道接入</div><i></i><div>AI识别</div><i></i><div>知识库回答</div><i></i><div>人工接管</div><i></i><div>工单闭环</div><i></i><div>策略优化</div>
+              </div>
+              <div class="insight-list">
+                <article><strong>高频未解决问题</strong><span>退款流程、课程有效期、发票申请</span></article>
+                <article><strong>AI优化建议</strong><span>补充退款类知识，完善课程权益描述</span></article>
+                <article><strong>异常提醒</strong><span>APP渠道转人工率较昨日升高 15%</span></article>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>渠道分布</h2><span>实时</span></div>
+              <div class="bars">
+                <label>APP <b style="--w:72%"></b><span>72%</span></label>
+                <label>网页 <b style="--w:54%"></b><span>54%</span></label>
+                <label>微信 <b style="--w:43%"></b><span>43%</span></label>
+                <label>小程序 <b style="--w:28%"></b><span>28%</span></label>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>客服绩效</h2><span>Top 4</span></div>
+              <ul class="rank-list">
+                <li><strong>张伟</strong><span>解决 186 · CSAT 98%</span></li>
+                <li><strong>李娜</strong><span>解决 173 · CSAT 96%</span></li>
+                <li><strong>王强</strong><span>解决 151 · CSAT 95%</span></li>
+                <li><strong>赵敏</strong><span>解决 144 · CSAT 93%</span></li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="workspace">
+          <div class="workspace-demo">
+            <div class="agent-steps">
+              <button class="agent-step active"><b>1</b><strong>转人工请求</strong><span>AI机器人触发</span></button>
+              <button class="agent-step"><b>2</b><strong>排队与路由分配</strong><span>调度系统</span></button>
+              <button class="agent-step"><b>3</b><strong>客服接入会话</strong><span>客服人员</span></button>
+              <button class="agent-step"><b>4</b><strong>查看用户画像/历史记录</strong><span>客服人员</span></button>
+              <button class="agent-step"><b>5</b><strong>人工回复与问题处理</strong><span>客服人员</span></button>
+              <button class="agent-step"><b>6</b><strong>结束会话并打标签</strong><span>客服人员</span></button>
+            </div>
+            <div class="workspace">
+              <aside class="conversation-list">
+                <div class="transfer-card">
+                  <strong>AI转人工请求</strong>
+                  <span>当前问题需要人工协助吗？</span>
+                  <button class="primary-btn" id="transfer-request">转人工</button>
+                </div>
+                <div class="route-card">
+                  <strong>智能路由策略</strong>
+                  <label><input type="checkbox" checked /> VIP优先</label>
+                  <label><input type="checkbox" checked /> 退款技能组</label>
+                  <label><input type="checkbox" checked /> 低负载优先</label>
+                  <small id="route-result">推荐：张伟 · 退款专员 · 当前负载30%</small>
+                </div>
+                <div class="tabs">
+                  <button class="active" data-conversation-status="waiting">待接入 <span id="waiting-count">3</span></button>
+                  <button data-conversation-status="active">进行中 <span id="active-count">8</span></button>
+                  <button data-conversation-status="closed">已结束</button>
+                </div>
+                <div id="conversation-items"></div>
+              </aside>
+              <section class="chat-panel">
+                <div class="chat-head">
+                  <div><strong>当前会话 U10086</strong><span id="session-status">待接入 · VIP · APP · 退款问题</span></div>
+                  <div class="chat-head-actions">
+                    <button class="primary-btn" id="accept-session">接入会话</button>
+                    <button class="danger-btn" id="end-session">结束会话</button>
+                  </div>
+                </div>
+                <div class="ai-summary">
+                  <strong>AI摘要</strong>
+                  用户咨询课程退费，已购买《Python入门》，未开课，要求全额退款；情绪中性，意图为退款申请，置信度 92%。
+                </div>
+                <div class="messages" id="messages"></div>
+                <div class="reply-tools">
+                  <button data-reply="您好，已收到您的问题，我先为您核实订单与课程状态。">AI推荐回复</button>
+                  <button data-reply="请您提供订单号或注册手机号，我帮您查询。">快捷回复</button>
+                  <button data-reply="我给您发送退款规则和课程订单资料，请您确认。">发送资料</button>
+                  <button data-reply="我将为您转接售后退款专员继续处理。">转接</button>
+                  <button id="make-ticket">创建工单</button>
+                  <button id="more-action">更多</button>
+                </div>
+                <form class="reply-box" id="reply-form">
+                  <input id="reply-input" placeholder="请输入回复内容，Enter 发送" />
+                  <button class="primary-btn">发送</button>
+                </form>
+              </section>
+              <aside class="customer-card">
+                <div class="customer-tabs">
+                  <button class="active" data-customer-tab="profile">用户信息</button>
+                  <button data-customer-tab="history">历史记录</button>
+                  <button data-customer-tab="orders">订单记录</button>
+                  <button data-customer-tab="tags">标签</button>
+                </div>
+                <div class="customer-tab active" id="customer-tab-profile">
+                  <div class="customer-profile" id="customer-profile-card" role="button" tabindex="0" aria-label="查看张女士用户画像详情">
+                    <div class="customer-hero">
+                      <div class="avatar">张</div>
+                      <div class="customer-identity">
+                        <div class="customer-name-row">
+                          <h3>张女士</h3>
+                          <span class="tag red">VIP用户</span>
+                        </div>
+                        <p>APP · 北京 · 活跃用户</p>
+                      </div>
+                    </div>
+                    <div class="customer-meta-grid">
+                      <article>
+                        <span>手机号</span>
+                        <strong>138****8888</strong>
+                      </article>
+                      <article>
+                        <span>来源渠道</span>
+                        <strong>APP</strong>
+                      </article>
+                      <article>
+                        <span>最近状态</span>
+                        <strong>咨询中</strong>
+                      </article>
+                    </div>
+                    <div class="customer-tags-block">
+                      <h4>客户标签</h4>
+                      <div class="tag-row"><span>高价值客户</span><span>关注价格</span><span>学习积极</span><span>已购课程</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="customer-tab" id="customer-tab-history">
+                  <ul class="compact-list">
+                    <li>2026-05-20 咨询课程退款问题</li>
+                    <li>2026-05-18 咨询课程大纲</li>
+                    <li>2026-05-10 报名 Python 入门课</li>
+                  </ul>
+                </div>
+                <div class="customer-tab" id="customer-tab-orders">
+                  <ul class="compact-list">
+                    <li>订单 20240521001 · Python入门 · ¥299</li>
+                    <li>订单 20240418008 · 资料包 · ¥49</li>
+                    <li>累计消费 ¥2,980 · 购买课程 3门</li>
+                  </ul>
+                </div>
+                <div class="customer-tab" id="customer-tab-tags">
+                  <div class="tag-row"><span>退款问题</span><span>课程咨询</span><span>高价值客户</span><span>风险预警</span><span>需回访</span></div>
+                </div>
+              </aside>
+            </div>
+            <div class="workspace-side-panels">
+              <section><h2>设计价值</h2><div class="capability-grid compact"><article><strong>提升客服效率</strong><span>一体化工作台减少切换</span></article><article><strong>提升用户体验</strong><span>快速响应，高效解决</span></article><article><strong>数据沉淀与分析</strong><span>结构化标签驱动优化</span></article></div></section>
+              <section><h2>核心能力</h2><div class="capability-grid compact"><article><strong>智能路由分配</strong><span>技能/负载/优先级分配</span></article><article><strong>全量用户画像</strong><span>360度了解用户</span></article><article><strong>会话质检与监控</strong><span>实时监控服务质量</span></article></div></section>
+              <section><h2>AI助手能力</h2><div class="capability-grid compact"><article><strong>AI会话摘要</strong><span>自动生成问题摘要</span></article><article><strong>智能回复建议</strong><span>推荐最佳回复话术</span></article><article><strong>自动标签推荐</strong><span>根据内容推荐标签</span></article></div></section>
+            </div>
+            <div class="workspace-bottom">
+              <section><h2>业务闭环</h2><div class="ticket-loop"><span>会话结束</span><span>数据沉淀</span><span>生成知识/工单</span><span>数据分析</span><span>优化服务</span></div></section>
+              <section><h2>会话标签示例</h2><div class="scenario-grid"><span>退款问题</span><span>课程咨询</span><span>技术问题</span><span>优惠活动</span><span>账号问题</span><span>其他</span></div></section>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="ai">
+          <div class="ai-demo">
+            <div class="ai-steps">
+              <button class="ai-step active"><b>1</b><strong>用户发起咨询</strong><span>用户提出问题</span></button>
+              <button class="ai-step"><b>2</b><strong>渠道接入</strong><span>系统接收消息</span></button>
+              <button class="ai-step"><b>3</b><strong>意图识别与语义理解</strong><span>AI引擎解析</span></button>
+              <button class="ai-step"><b>4</b><strong>知识库匹配/生成回答</strong><span>RAG检索</span></button>
+              <button class="ai-step"><b>5</b><strong>返回答案</strong><span>机器人回复</span></button>
+              <button class="ai-step"><b>6</b><strong>满意/转人工</strong><span>分流闭环</span></button>
+            </div>
+
+            <div class="ai-stage-grid">
+              <section class="ai-stage">
+                <div class="panel-head"><h2>阶段一：咨询接入</h2><span>入口体验</span></div>
+                <div class="channel-grid">
+                  <button class="active" data-ai-channel="APP">APP</button>
+                  <button data-ai-channel="网页">网页</button>
+                  <button data-ai-channel="小程序">小程序</button>
+                  <button data-ai-channel="微信公众号">微信公众号</button>
+                </div>
+                <div class="customer-phone">
+                  <div class="phone-head"><span id="ai-channel-name">APP</span><strong>智能客服</strong></div>
+                  <div class="phone-messages" id="ai-phone-messages">
+                    <div class="message">我想了解课程价格和报名方式</div>
+                    <div class="message agent">您好，我是小智，有什么可以帮您？</div>
+                  </div>
+                  <form class="ai-question-form" id="ai-question-form">
+                    <input id="ai-question-input" value="Python入门课可以退款吗？" />
+                    <button class="primary-btn">发送咨询</button>
+                  </form>
+                </div>
+              </section>
+
+              <section class="ai-stage">
+                <div class="panel-head"><h2>阶段二：AI理解与应答</h2><span>核心能力</span></div>
+                <div class="ai-analysis">
+                  <article><strong>意图识别</strong><span id="intent-result">退款咨询 · 置信度 92%</span></article>
+                  <article><strong>语义理解</strong><span>用户询问课程退款条件、退款时效和办理方式</span></article>
+                  <article><strong>多意图判断</strong><span>退款政策 + 课程订单 + 售后服务</span></article>
+                </div>
+                <div class="rag-box">
+                  <div class="panel-head"><h2>RAG知识库检索</h2><span>命中 3 条</span></div>
+                  <div class="rag-list">
+                    <article><strong>退款规则</strong><span>未开课课程支持全额退款 · 命中率 96%</span></article>
+                    <article><strong>退款时效</strong><span>审核通过后 1-3 个工作日到账 · 命中率 91%</span></article>
+                    <article><strong>办理方式</strong><span>APP订单页或客服工单均可提交 · 命中率 88%</span></article>
+                  </div>
+                </div>
+                <label class="full-label">生成答案预览<textarea id="ai-answer-preview">Python入门课如未开课，可申请全额退款。您可以在 APP 订单页提交申请，审核通过后预计 1-3 个工作日到账。</textarea></label>
+              </section>
+
+              <section class="ai-stage">
+                <div class="panel-head"><h2>阶段三：结果分流与闭环</h2><span>体验关键</span></div>
+                <div class="answer-card">
+                  <strong>返回答案</strong>
+                  <p id="ai-final-answer">Python入门课如未开课，可申请全额退款。您可以在 APP 订单页提交申请，审核通过后预计 1-3 个工作日到账。</p>
+                  <div class="tag-row"><span>可信度 94%</span><span>来源：退款规则知识库</span><span>响应 0.8s</span></div>
+                </div>
+                <div class="branch-actions">
+                  <button class="primary-btn" id="ai-resolved">用户满意，结束会话</button>
+                  <button class="danger-btn" id="ai-unresolved">未解决，转人工</button>
+                </div>
+                <div class="ai-feedback" id="ai-feedback">等待用户反馈：已解决或转人工。</div>
+                <div class="ai-transfer-rule">
+                  <strong>转人工触发策略</strong>
+                  <span>多次未解决 / 情绪焦急 / 退款投诉 / VIP客户 / 置信度低于70%</span>
+                </div>
+                <div class="ai-transfer-panel is-hidden" id="ai-transfer-panel">
+                  <div class="panel-head"><h2>转人工进度</h2><span id="ai-transfer-status">待触发</span></div>
+                  <div class="transfer-progress">
+                    <article><strong>排队编号</strong><span id="ai-transfer-id">-</span></article>
+                    <article><strong>推荐客服</strong><span>张伟 · 退款专员 · 低负载</span></article>
+                    <article><strong>SLA</strong><span>预计 30 秒内接入</span></article>
+                  </div>
+                  <div class="transfer-sync">
+                    <strong>已同步给人工客服</strong>
+                    <span>用户问题、AI回答、知识库命中、当前渠道、转人工原因和会话摘要。</span>
+                  </div>
+                  <button class="primary-btn" id="go-workspace-transfer" type="button">去客服中心接入</button>
+                </div>
+              </section>
+            </div>
+
+            <div class="ai-bottom">
+              <section>
+                <h2>核心能力支撑</h2>
+                <div class="capability-grid ai-capabilities">
+                  <article><strong>知识库管理</strong><span>结构化/非结构化知识统一管理和更新</span></article>
+                  <article><strong>NLP能力</strong><span>意图识别、实体抽取、语义理解、多轮对话</span></article>
+                  <article><strong>对话管理</strong><span>上下文管理、会话保持、状态跟踪</span></article>
+                  <article><strong>数据与学习</strong><span>效果评估、反馈学习、模型持续优化</span></article>
+                </div>
+              </section>
+              <section>
+                <h2>价值总结</h2>
+                <div class="value-grid">
+                  <article><strong>7x24</strong><span>智能接待，提升服务覆盖</span></article>
+                  <article><strong>快速</strong><span>响应用户咨询，提升满意度</span></article>
+                  <article><strong>自动</strong><span>解决大量重复问题，降本增效</span></article>
+                  <article><strong>无缝</strong><span>转人工，提升复杂问题解决率</span></article>
+                </div>
+              </section>
+              <section>
+                <h2>典型应用场景</h2>
+                <div class="scenario-grid ai-scenes"><span>售前咨询</span><span>订单查询</span><span>售后服务</span><span>业务办理</span><span>活动咨询</span><span>投诉建议</span></div>
+              </section>
+            </div>
+
+            <section class="panel">
+              <div class="panel-head"><h2>待审核知识建议</h2><button class="primary-btn" id="batch-knowledge-btn">批量审核</button></div>
+              <div class="table" id="knowledge-table"></div>
+              <p class="ops-feedback is-hidden" id="knowledge-feedback"></p>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="tickets">
+          <section class="panel ticket-demo">
+            <div class="panel-head">
+              <div>
+                <h2>工单与服务流程闭环演示</h2>
+                <span>从问题识别到工单关闭，完整演示跨部门协同与用户确认</span>
+              </div>
+              <button class="primary-btn" id="open-ticket-modal">创建工单</button>
+            </div>
+            <div class="ticket-steps" id="ticket-steps"></div>
+            <div class="ticket-stage">
+              <section class="ticket-action" id="ticket-action"></section>
+              <aside class="ticket-record">
+                <div class="panel-head"><h2>当前工单</h2><span>TK20240521001</span></div>
+                <div class="ticket-status-card">
+                  <strong id="ticket-current-title">退款未到账问题</strong>
+                  <span id="ticket-status-text">复杂问题已识别</span>
+                </div>
+                <ul class="ticket-timeline" id="ticket-timeline"></ul>
+              </aside>
+            </div>
+            <div class="ticket-list-wrap">
+              <div class="panel-head"><h2>工单列表</h2><span>提交创建后会追加到列表</span></div>
+              <div class="table" id="ticket-table"></div>
+            </div>
+            <div class="ticket-capabilities">
+              <section>
+                <h2>核心能力</h2>
+                <div class="capability-grid">
+                  <article><strong>智能识别</strong><span>AI识别未解决问题，自动推荐创建工单</span></article>
+                  <article><strong>智能分配</strong><span>基于技能、负载、优先级自动推荐处理人</span></article>
+                  <article><strong>协同处理</strong><span>工单内多方协同，沟通记录全留痕</span></article>
+                  <article><strong>SLA与预警</strong><span>超时预警、升级机制，保障服务质量</span></article>
+                  <article><strong>数据沉淀</strong><span>工单沉淀知识库，持续优化AI</span></article>
+                </div>
+              </section>
+            </div>
+            <div class="ticket-bottom">
+              <section>
+                <h2>业务闭环</h2>
+                <div class="ticket-loop">
+                  <span>问题识别</span><i></i><span>创建工单</span><i></i><span>协同处理</span><i></i><span>结果回传</span><i></i><span>数据沉淀</span><i></i><span>持续优化</span>
+                </div>
+              </section>
+              <section>
+                <h2>价值收益</h2>
+                <div class="value-grid">
+                  <article><strong>30%↓</strong><span>问题处理时长</span></article>
+                  <article><strong>25%↑</strong><span>一次解决率</span></article>
+                  <article><strong>40%↓</strong><span>人工沟通成本</span></article>
+                  <article><strong>95%+</strong><span>用户满意度</span></article>
+                </div>
+              </section>
+              <section>
+                <h2>适用场景</h2>
+                <div class="scenario-grid">
+                  <span>售后服务</span>
+                  <span>投诉处理</span>
+                  <span>课程/咨询问题</span>
+                  <span>退款退费</span>
+                  <span>技术支持</span>
+                  <span>其他复杂问题</span>
+                </div>
+              </section>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="customers">
+          <div class="two-col">
+            <section class="panel">
+              <div class="panel-head"><h2>客户分群</h2><span>AI分群</span></div>
+              <div class="segment-list">
+                <button class="active" data-customer-segment="全部客户">全部客户 24,310</button>
+                <button data-customer-segment="高价值客户">高价值客户 2,982</button>
+                <button data-customer-segment="退款风险">退款风险 318</button>
+                <button data-customer-segment="课程转化机会">课程转化机会 1,248</button>
+              </div>
+              <p class="ops-feedback is-hidden" id="customer-segment-feedback"></p>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>客户画像</h2><span>行为轨迹</span></div>
+              <div class="profile-grid">
+                <article><strong>累计消费</strong><span>¥2,980</span></article>
+                <article><strong>最近学习</strong><span>Python入门</span></article>
+                <article><strong>学习时长</strong><span>12小时</span></article>
+                <article><strong>风险等级</strong><span>中</span></article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="growth">
+          <div class="dashboard-grid">
+            <section class="panel wide">
+              <div class="panel-head"><h2>触达策略</h2><span>自动消息 · 主动邀请</span></div>
+              <div class="insight-list">
+                <article><strong>高价值访客主动邀请</strong><span>访问价格页超过 40 秒，触发课程顾问邀请。</span></article>
+                <article><strong>沉默用户召回</strong><span>7 天未学习用户，推送课程进度提醒和资料包。</span></article>
+                <article><strong>退款风险安抚</strong><span>识别退款意图后优先推送政策说明，并引导人工介入。</span></article>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>营销活动</h2><span>运行中</span></div>
+              <div class="ab-card"><strong>Python入门课限时咨询</strong><span>咨询→报名转化率 18.6%</span><span>AI辅助成交 246 单</span></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>转化分析</h2><span>漏斗</span></div>
+              <div class="bars">
+                <label>访问 <b style="--w:88%"></b><span>12k</span></label>
+                <label>咨询 <b style="--w:62%"></b><span>7.6k</span></label>
+                <label>留资 <b style="--w:36%"></b><span>2.8k</span></label>
+                <label>成交 <b style="--w:18%"></b><span>912</span></label>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="analytics">
+          <div class="ops-demo">
+            <div class="ops-steps" id="ops-steps">
+              <button class="ops-step active"><b>1</b><strong>数据采集</strong><span>会话/工单/客服/反馈</span></button>
+              <button class="ops-step"><b>2</b><strong>数据分析与指标计算</strong><span>清洗/建模/多维分析</span></button>
+              <button class="ops-step"><b>3</b><strong>识别问题与优化点</strong><span>AI洞察/根因定位</span></button>
+              <button class="ops-step"><b>4</b><strong>优化知识库/机器人策略</strong><span>知识与流程策略</span></button>
+              <button class="ops-step"><b>5</b><strong>发布新策略</strong><span>灰度/版本/生效控制</span></button>
+              <button class="ops-step"><b>6</b><strong>效果监控与持续迭代</strong><span>监控/预警/复盘</span></button>
+            </div>
+
+            <div class="ops-layout">
+              <aside class="ops-source">
+                <h2>一、数据采集全景</h2>
+                <div class="source-list">
+                  <article data-ops-source="会话数据"><strong>会话数据</strong><span>用户提问、机器人回复、人工会话、满意度</span></article>
+                  <article data-ops-source="工单数据"><strong>工单数据</strong><span>工单类型、状态、处理人、解决结果</span></article>
+                  <article data-ops-source="客服数据"><strong>客服数据</strong><span>响应时长、解决率、质检评分</span></article>
+                  <article data-ops-source="用户反馈"><strong>用户反馈</strong><span>满意度评价、意见建议、投诉与表扬</span></article>
+                  <article data-ops-source="系统日志"><strong>系统日志</strong><span>机器人日志、接口日志、异常日志</span></article>
+                </div>
+              </aside>
+
+              <main class="ops-main">
+                <section class="ops-board">
+                  <div class="panel-head"><h2>二、核心数据看板</h2><span>实时指标</span></div>
+                  <div class="metric-grid ops-metrics">
+                    <article class="metric"><span>今日会话总量</span><strong>12,345</strong><em>+12.3%</em></article>
+                    <article class="metric"><span>机器人解决率</span><strong>68.5%</strong><em>+8.2%</em></article>
+                    <article class="metric"><span>转人工率</span><strong>31.5%</strong><em class="down">-5.6%</em></article>
+                    <article class="metric"><span>工单解决率</span><strong>92.4%</strong><em>+6.1%</em></article>
+                    <article class="metric"><span>用户满意度</span><strong>4.6/5</strong><em>+0.3</em></article>
+                  </div>
+                  <div class="ops-chart-grid">
+                    <div class="ops-chart">
+                      <strong>会话趋势（近7天）</strong>
+                      <div class="mini-chart"><i style="--h:46%"></i><i style="--h:64%"></i><i style="--h:52%"></i><i style="--h:74%"></i><i style="--h:68%"></i><i style="--h:77%"></i><i style="--h:58%"></i></div>
+                    </div>
+                    <div class="ops-chart">
+                      <strong>问题分类占比 Top5</strong>
+                      <div class="bars">
+                        <label>课程咨询 <b style="--w:72%"></b><span>32%</span></label>
+                        <label>退款问题 <b style="--w:58%"></b><span>21%</span></label>
+                        <label>技术问题 <b style="--w:44%"></b><span>18%</span></label>
+                        <label>学习问题 <b style="--w:32%"></b><span>14%</span></label>
+                      </div>
+                    </div>
+                    <div class="ops-chart">
+                      <strong>转人工原因分析 Top5</strong>
+                      <div class="bars">
+                        <label>机器人未理解 <b style="--w:78%"></b><span>36%</span></label>
+                        <label>问题复杂 <b style="--w:62%"></b><span>25%</span></label>
+                        <label>答案不满意 <b style="--w:46%"></b><span>18%</span></label>
+                        <label>需要人工处理 <b style="--w:28%"></b><span>12%</span></label>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="ops-workgrid">
+                  <div class="ops-card">
+                    <div class="panel-head"><h2>三、问题洞察与优化建议</h2><span>AI驱动</span></div>
+                    <div class="insight-list">
+                      <article><strong>退款流程复杂，如何退费？</strong><span>根因：知识命中低；建议补充退款条件、时效和材料说明</span></article>
+                      <article><strong>课程有效期多久？</strong><span>根因：课程类型差异未拆分；建议按课程类型维护知识</span></article>
+                      <article><strong>发票如何申请？</strong><span>根因：申请条件缺失；建议补充抬头、税号、周期说明</span></article>
+                    </div>
+                    <button class="primary-btn ops-action" data-ops-action="洞察已生成优化任务">生成优化任务</button>
+                  </div>
+                  <div class="ops-card">
+                    <div class="panel-head"><h2>四、策略优化中心</h2><span>知识库 + 机器人策略</span></div>
+                    <div class="strategy-mini">
+                      <button class="ops-action" data-ops-action="已进入知识库优化配置：新增退款规则、发票申请、课程有效期知识">知识库优化</button><button class="ops-action" data-ops-action="已进入意图识别优化：退款咨询置信度阈值调整为 86%">意图识别优化</button><button class="ops-action" data-ops-action="已进入回复策略优化：启用引用来源与满意度反馈">回复策略优化</button><button class="ops-action" data-ops-action="已进入转人工规则优化：多轮未解决和VIP优先转接">转人工规则优化</button>
+                    </div>
+                    <div class="route-map"><span>用户提问</span><span>意图识别</span><span>知识检索</span><span>命中?</span><span>生成回复</span><span>转人工/创建工单</span></div>
+                    <button class="primary-btn ops-action" data-ops-action="策略已保存为 V2.3.2 草稿">保存策略草稿</button>
+                  </div>
+                  <div class="ops-card">
+                    <div class="panel-head"><h2>五、发布与效果验证</h2><span>灰度发布 + A/B测试</span></div>
+                    <div class="ab-card"><strong>灰度版本 V2.3.1</strong><span>灰度范围：10% 用户</span><span>生效时间：2026-05-07 20:00</span><span>发布状态：运行中</span></div>
+                    <div class="table compact-table">
+                      <div class="table-row head"><span>组别</span><span>解决率</span><span>转人工率</span><span>满意度</span><span>提升</span></div>
+                      <div class="table-row"><span>对照组</span><span>58.2%</span><span>41.8%</span><span>4.2</span><span>-</span></div>
+                      <div class="table-row"><span>实验组</span><span>68.5%</span><span>31.5%</span><span>4.6</span><span class="trend-up">+10.3%</span></div>
+                    </div>
+                    <button class="primary-btn ops-action" data-ops-action="灰度策略已发布，开始监控效果">发布管理</button>
+                  </div>
+                  <div class="ops-card monitor-card">
+                    <div class="panel-head"><h2>六、效果监控与持续迭代</h2><span>实时监控 + 预警</span></div>
+                    <div class="monitor-summary">
+                      <article><span>当前健康度</span><strong>92.4%</strong></article>
+                      <article><span>预警数量</span><strong>3</strong></article>
+                      <article><span>待处理</span><strong>128</strong></article>
+                    </div>
+                    <div class="mini-line"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <ul class="monitor-alerts">
+                      <li><b>!</b><span>转人工率异常升高</span><em class="trend-up">+15%</em></li>
+                      <li><b>↓</b><span>知识命中率下降</span><em class="trend-down">-8%</em></li>
+                      <li><b>●</b><span>工单积压超阈值</span><em>128 单</em></li>
+                    </ul>
+                    <button class="primary-btn ops-action" data-ops-action="预警阈值已更新">预警设置</button>
+                  </div>
+                </section>
+              </main>
+            </div>
+
+            <div class="ops-bottom">
+              <section>
+                <h2>数据驱动运营闭环</h2>
+                <div class="ticket-loop ops-loop"><span>数据采集</span><span>数据分析</span><span>问题洞察</span><span>策略优化</span><span>发布上线</span><span>效果验证</span><span>持续迭代</span></div>
+              </section>
+              <section>
+                <h2>核心价值</h2>
+                <div class="value-grid">
+                  <article><strong>提升</strong><span>机器人解决率</span></article>
+                  <article><strong>降低</strong><span>人工成本</span></article>
+                  <article><strong>提升</strong><span>用户满意度</span></article>
+                  <article><strong>沉淀</strong><span>企业知识资产</span></article>
+                </div>
+              </section>
+            </div>
+            <p class="ops-feedback" id="ops-feedback">点击任一操作按钮，可模拟策略流转结果。</p>
+          </div>
+        </section>
+
+        <section class="view" id="settings">
+          <div class="settings-grid">
+            <section class="panel"><h2>渠道接入</h2><p>Web SDK、APP SDK、微信/小程序授权。</p><button class="primary-btn" id="copy-sdk-btn">复制接入代码</button></section>
+            <section class="panel"><h2>账号与权限</h2><p>角色、部门、坐席组和权限范围。</p><button id="manage-members-btn">管理成员</button></section>
+            <section class="panel"><h2>会话分配</h2><p>按技能、负载、优先级和客户价值自动路由。</p><button id="configure-routing-btn">配置规则</button></section>
+            <section class="panel"><h2>安全与日志</h2><p>登录记录、操作日志、审计追踪和数据脱敏。</p><button id="view-logs-btn">查看日志</button></section>
+          </div>
+          <p class="ops-feedback" id="settings-feedback">系统设置操作结果会显示在这里。</p>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="ticket-modal">
+      <form method="dialog" class="modal">
+        <div class="panel-head">
+          <h2>创建工单</h2>
+          <button class="modal-icon-close" value="cancel" aria-label="关闭">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <label>工单标题<input value="退款未到账问题" /></label>
+        <label>问题类型<select><option>退款问题</option><option>投诉建议</option><option>技术故障</option></select></label>
+        <label>优先级<select><option>高</option><option>中</option><option>低</option></select></label>
+        <label>AI摘要<textarea>用户申请课程退款，订单已支付，课程未开始，建议售后组跟进。</textarea></label>
+        <button class="primary-btn" value="default">提交工单</button>
+      </form>
+    </dialog>
+
+    <dialog id="ticket-success-modal">
+      <form method="dialog" class="modal success-modal">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2 id="ticket-success-title">提交工单成功</h2>
+        <p id="ticket-success-desc">工单已创建并进入待分配列表，可在工单列表中继续跟进处理进度。</p>
+        <button class="primary-btn" value="default">知道了</button>
+      </form>
+    </dialog>
+
+    <dialog id="customer-profile-modal">
+      <form method="dialog" class="modal profile-detail-modal">
+        <div class="panel-head">
+          <div>
+            <h2>用户画像详情</h2>
+            <span>张女士 · VIP用户 · APP渠道</span>
+          </div>
+          <button class="modal-icon-close" value="cancel" aria-label="关闭">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="profile-summary">
+          <div class="avatar">张</div>
+          <div>
+            <h3>张女士</h3>
+            <p>手机号 138****8888 · 北京 · 活跃用户 · 当前咨询退款问题</p>
+            <div class="tag-row"><span>高价值客户</span><span>关注价格</span><span>已购课程</span><span>需回访</span></div>
+          </div>
+        </div>
+        <div class="profile-detail-grid">
+          <article><strong>客户价值</strong><span>累计消费 ¥2,980，购买课程 3 门，近 30 天活跃 8 次。</span></article>
+          <article><strong>当前诉求</strong><span>申请 Python 入门课退款，课程未开始，要求确认退款到账时间。</span></article>
+          <article><strong>历史记录</strong><span>2026-05-20 咨询退款；2026-05-18 咨询课程大纲；2026-05-10 报名课程。</span></article>
+          <article><strong>服务建议</strong><span>优先安抚情绪，说明退款规则与到账时效，必要时创建售后工单跟进。</span></article>
+        </div>
+        <button class="primary-btn" value="default">知道了</button>
+      </form>
+    </dialog>
+
+    <dialog id="session-end-modal">
+      <form method="dialog" class="modal" id="session-end-form">
+        <div class="panel-head"><h2>结束会话并打标签</h2><button class="modal-icon-close" value="cancel" aria-label="关闭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+        <label>会话类型<select id="session-type"><option>退款问题</option><option>课程咨询</option><option>技术问题</option><option>优惠活动</option></select></label>
+        <label>结束原因<select id="session-reason"><option>问题已解决</option><option>已创建工单</option><option>用户离线</option><option>转接其他客服</option></select></label>
+        <label>满意度<select id="session-score"><option>5星</option><option>4星</option><option>3星</option></select></label>
+        <label>AI推荐标签<input id="session-tags" value="退款问题, 高价值客户, 需回访" /></label>
+        <button class="primary-btn" value="default">确认结束</button>
+      </form>
+    </dialog>
+
+    <dialog id="members-modal">
+      <form method="dialog" class="modal">
+        <div class="panel-head"><h2>成员管理</h2><button class="modal-icon-close" value="cancel" aria-label="关闭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+        <div class="table compact-table">
+          <div class="table-row head"><span>成员</span><span>角色</span><span>部门</span><span>状态</span><span>操作</span></div>
+          <div class="table-row"><span>张伟</span><span>售后客服</span><span>售后组</span><span>在线</span><span>编辑</span></div>
+          <div class="table-row"><span>李娜</span><span>客服主管</span><span>客服部</span><span>在线</span><span>编辑</span></div>
+          <div class="table-row"><span>王强</span><span>技术支持</span><span>技术组</span><span>离线</span><span>编辑</span></div>
+        </div>
+        <button class="primary-btn" value="default">邀请成员</button>
+      </form>
+    </dialog>
+
+    <dialog id="routing-modal">
+      <form method="dialog" class="modal">
+        <div class="panel-head"><h2>会话分配规则</h2><button class="modal-icon-close" value="cancel" aria-label="关闭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+        <label><input type="checkbox" checked /> VIP客户优先分配</label>
+        <label><input type="checkbox" checked /> 按技能组匹配客服</label>
+        <label><input type="checkbox" checked /> 低负载客服优先</label>
+        <label>超时升级阈值<select><option>2分钟</option><option>5分钟</option><option>10分钟</option></select></label>
+        <button class="primary-btn" value="default">保存规则</button>
+      </form>
+    </dialog>
+
+    <dialog id="logs-modal">
+      <form method="dialog" class="modal">
+        <div class="panel-head"><h2>系统日志</h2><button class="modal-icon-close" value="cancel" aria-label="关闭"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+        <ul class="compact-list">
+          <li>2026-05-07 14:10 张伟接入会话 U10086</li>
+          <li>2026-05-07 14:08 系统完成知识库同步</li>
+          <li>2026-05-07 14:02 工单 TK20240521001 状态更新为处理中</li>
+          <li>2026-05-07 13:58 管理员更新路由规则</li>
+        </ul>
+        <button class="primary-btn" value="default">导出日志</button>
+      </form>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
