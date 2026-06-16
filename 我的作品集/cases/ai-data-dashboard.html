@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI智能客服数据大屏 - 案例详情</title>
-  <link rel="preload" as="image" href="../image/AI数据1.png" />
+  <link rel="preload" as="image" href="../image/AI数据1.jpg" />
   <style>
     * {
       box-sizing: border-box;
@@ -95,31 +95,39 @@
 </head>
 <body>
   <main class="case-page">
-    <a class="back-link" href="../index.html#aigc">返回作品集</a>
+    <a class="back-link" href="../index.html#aigc" data-back-link>返回上一级</a>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 1">
-      <img src="../image/AI数据1.png" alt="AI智能客服数据大屏案例详情板块 1" />
+      <img src="../image/AI数据1.jpg" alt="AI智能客服数据大屏案例详情板块 1" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 2">
-      <img src="../image/AI数据2.png" alt="AI智能客服数据大屏案例详情板块 2" />
+      <img src="../image/AI数据2.jpg" alt="AI智能客服数据大屏案例详情板块 2" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 3">
-      <img src="../image/AI数据3.png" alt="AI智能客服数据大屏案例详情板块 3" />
+      <img src="../image/AI数据3.jpg" alt="AI智能客服数据大屏案例详情板块 3" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 4">
-      <img src="../image/AI数据4.png" alt="AI智能客服数据大屏案例详情板块 4" />
+      <img src="../image/AI数据4.jpg" alt="AI智能客服数据大屏案例详情板块 4" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 5">
-      <img src="../image/AI数据5.png" alt="AI智能客服数据大屏案例详情板块 5" />
+      <img src="../image/AI数据5.jpg" alt="AI智能客服数据大屏案例详情板块 5" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 6">
-      <img src="../image/AI数据6.png" alt="AI智能客服数据大屏案例详情板块 6" />
+      <img src="../image/AI数据6..jpg" alt="AI智能客服数据大屏案例详情板块 6" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 7">
-      <img src="../image/AI数据7.png" alt="AI智能客服数据大屏案例详情板块 7" />
+      <img src="../image/AI数据7.jpg" alt="AI智能客服数据大屏案例详情板块 7" />
     </section>
     <section class="case-section" aria-label="AI智能客服数据大屏案例板块 8">
-      <img src="../image/AI数据8.png" alt="AI智能客服数据大屏案例详情板块 8" />
+      <img src="../image/AI数据8.jpg" alt="AI智能客服数据大屏案例详情板块 8" />
     </section>
   </main>
+  <script>
+    document.querySelector('[data-back-link]').addEventListener('click', event => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
 </body>
 </html>

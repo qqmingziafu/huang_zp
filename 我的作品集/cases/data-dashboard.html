@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>网上老年大学数据大屏 - 案例详情</title>
-  <link rel="preload" as="image" href="../image/数据大屏1.png" />
+  <link rel="preload" as="image" href="../image/数据大屏1.jpg" />
   <style>
     * {
       box-sizing: border-box;
@@ -95,31 +95,39 @@
 </head>
 <body>
   <main class="case-page">
-    <a class="back-link" href="../index.html#aigc">返回作品集</a>
+    <a class="back-link" href="../index.html#aigc" data-back-link>返回上一级</a>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 1">
-      <img src="../image/数据大屏1.png" alt="网上老年大学数据大屏案例详情板块 1" />
+      <img src="../image/数据大屏1.jpg" alt="网上老年大学数据大屏案例详情板块 1" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 2">
-      <img src="../image/数据大屏2.png" alt="网上老年大学数据大屏案例详情板块 2" />
+      <img src="../image/数据大屏2.jpg" alt="网上老年大学数据大屏案例详情板块 2" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 3">
-      <img src="../image/数据大屏3.png" alt="网上老年大学数据大屏案例详情板块 3" />
+      <img src="../image/数据大屏3.jpg" alt="网上老年大学数据大屏案例详情板块 3" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 4">
-      <img src="../image/数据大屏4.png" alt="网上老年大学数据大屏案例详情板块 4" />
+      <img src="../image/数据大屏4.jpg" alt="网上老年大学数据大屏案例详情板块 4" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 5">
-      <img src="../image/数据大屏5.png" alt="网上老年大学数据大屏案例详情板块 5" />
+      <img src="../image/数据大屏5.jpg" alt="网上老年大学数据大屏案例详情板块 5" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 6">
-      <img src="../image/数据大屏6.png" alt="网上老年大学数据大屏案例详情板块 6" />
+      <img src="../image/数据大屏6.jpg" alt="网上老年大学数据大屏案例详情板块 6" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 7">
-      <img src="../image/数据大屏7.png" alt="网上老年大学数据大屏案例详情板块 7" />
+      <img src="../image/数据大屏7.jpg" alt="网上老年大学数据大屏案例详情板块 7" />
     </section>
     <section class="case-section" aria-label="网上老年大学数据大屏案例板块 8">
-      <img src="../image/数据大屏8.png" alt="网上老年大学数据大屏案例详情板块 8" />
+      <img src="../image/数据大屏8.jpg" alt="网上老年大学数据大屏案例详情板块 8" />
     </section>
   </main>
+  <script>
+    document.querySelector('[data-back-link]').addEventListener('click', event => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
 </body>
 </html>

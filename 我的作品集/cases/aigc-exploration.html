@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIGC 探索与应用落地 - 案例详情</title>
-  <link rel="preload" as="image" href="../image/小S1.png" />
+  <link rel="preload" as="image" href="../image/小S12.jpg" />
   <style>
     * {
       box-sizing: border-box;
@@ -95,46 +95,54 @@
 </head>
 <body>
   <main class="case-page">
-    <a class="back-link" href="../index.html#aigc">返回作品集</a>
+    <a class="back-link" href="../index.html#aigc" data-back-link>返回上一级</a>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 1">
-      <img src="../image/小S12.png" alt="AIGC 探索与应用落地案例详情板块 1" />
+      <img src="../image/小S12.jpg" alt="AIGC 探索与应用落地案例详情板块 1" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 2">
-      <img src="../image/小S1.png" alt="AIGC 探索与应用落地案例详情板块 2" />
+      <img src="../image/小S1.jpg" alt="AIGC 探索与应用落地案例详情板块 2" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 3">
-      <img src="../image/小S2.png" alt="AIGC 探索与应用落地案例详情板块 3" />
+      <img src="../image/小S2.jpg" alt="AIGC 探索与应用落地案例详情板块 3" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 4">
-      <img src="../image/小S3.png" alt="AIGC 探索与应用落地案例详情板块 4" />
+      <img src="../image/小S3.jpg" alt="AIGC 探索与应用落地案例详情板块 4" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 5">
-      <img src="../image/小S4.png" alt="AIGC 探索与应用落地案例详情板块 5" />
+      <img src="../image/小S4.jpg" alt="AIGC 探索与应用落地案例详情板块 5" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 6">
-      <img src="../image/小S5.png" alt="AIGC 探索与应用落地案例详情板块 6" />
+      <img src="../image/小S5.jpg" alt="AIGC 探索与应用落地案例详情板块 6" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 7">
-      <img src="../image/小S6.png" alt="AIGC 探索与应用落地案例详情板块 7" />
+      <img src="../image/小S6.jpg" alt="AIGC 探索与应用落地案例详情板块 7" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 8">
-      <img src="../image/小S7.png" alt="AIGC 探索与应用落地案例详情板块 8" />
+      <img src="../image/aigc-coffee-mini-program.jpg" alt="AIGC 探索与应用落地案例详情板块 8" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 9">
-      <img src="../image/小S8.png" alt="AIGC 探索与应用落地案例详情板块 9" />
+      <img src="../image/小S7.jpg" alt="AIGC 探索与应用落地案例详情板块 9" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 10">
-      <img src="../image/小S9.png" alt="AIGC 探索与应用落地案例详情板块 10" />
+      <img src="../image/小S8.jpg" alt="AIGC 探索与应用落地案例详情板块 10" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 11">
-      <img src="../image/aigc-coffee-mini-program.png" alt="AIGC 探索与应用落地案例详情板块 11" />
+      <img src="../image/小S9.jpg" alt="AIGC 探索与应用落地案例详情板块 11" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 12">
-      <img src="../image/小S10.png" alt="AIGC 探索与应用落地案例详情板块 12" />
+      <img src="../image/小S10.jpg" alt="AIGC 探索与应用落地案例详情板块 12" />
     </section>
     <section class="case-section" aria-label="AIGC 探索与应用落地案例板块 13">
-      <img src="../image/小S11.png" alt="AIGC 探索与应用落地案例详情板块 13" />
+      <img src="../image/小S11.jpg" alt="AIGC 探索与应用落地案例详情板块 13" />
     </section>
   </main>
+  <script>
+    document.querySelector('[data-back-link]').addEventListener('click', event => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
 </body>
 </html>

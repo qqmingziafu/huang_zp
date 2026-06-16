@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>金龄云管理后台B端 - 案例详情</title>
-  <link rel="preload" as="image" href="../image/金龄云2.png" />
+  <link rel="preload" as="image" href="../image/金龄云2.jpg" />
   <style>
     * {
       box-sizing: border-box;
@@ -95,22 +95,30 @@
 </head>
 <body>
   <main class="case-page">
-    <a class="back-link" href="../index.html#works">返回作品集</a>
+    <a class="back-link" href="../index.html#works" data-back-link>返回上一级</a>
     <section class="case-section" aria-label="金龄云管理后台B端案例板块 1">
-      <img src="../image/金龄云2.png" alt="金龄云管理后台B端案例详情板块 1" />
+      <img src="../image/金龄云2.jpg" alt="金龄云管理后台B端案例详情板块 1" />
     </section>
     <section class="case-section" aria-label="金龄云管理后台B端设计规范板块">
-      <img src="../image/金龄云1.png" alt="金龄云管理后台B端设计规范" />
+      <img src="../image/金龄云1.jpg" alt="金龄云管理后台B端设计规范" />
     </section>
     <section class="case-section" aria-label="金龄云管理后台B端页面展示板块 3">
-      <img src="../image/金龄3.png" alt="金龄云管理后台B端页面展示板块 3" />
+      <img src="../image/金龄3.jpg" alt="金龄云管理后台B端页面展示板块 3" />
     </section>
     <section class="case-section" aria-label="金龄云管理后台B端页面展示板块 4">
-      <img src="../image/金龄4.png" alt="金龄云管理后台B端页面展示板块 4" />
+      <img src="../image/金龄4.jpg" alt="金龄云管理后台B端页面展示板块 4" />
     </section>
     <section class="case-section" aria-label="金龄云管理后台B端页面展示板块 5">
-      <img src="../image/金龄云5.png" alt="金龄云管理后台B端页面展示板块 5" />
+      <img src="../image/金龄云5.jpg" alt="金龄云管理后台B端页面展示板块 5" />
     </section>
   </main>
+  <script>
+    document.querySelector('[data-back-link]').addEventListener('click', event => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
 </body>
 </html>

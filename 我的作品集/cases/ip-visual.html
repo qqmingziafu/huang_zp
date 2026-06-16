@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>网上老年大学品牌视觉指导手册 - 案例详情</title>
-  <link rel="preload" as="image" href="../image/LOGO1.png" />
+  <link rel="preload" as="image" href="../image/LOGO1.jpg" />
   <style>
     * {
       box-sizing: border-box;
@@ -95,34 +95,42 @@
 </head>
 <body>
   <main class="case-page">
-    <a class="back-link" href="../index.html#aigc">返回作品集</a>
+    <a class="back-link" href="../index.html#aigc" data-back-link>返回上一级</a>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 1">
-      <img src="../image/LOGO1.png" alt="网上老年大学品牌视觉指导手册板块 1" />
+      <img src="../image/LOGO1.jpg" alt="网上老年大学品牌视觉指导手册板块 1" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 2">
-      <img src="../image/LOGO2.png" alt="网上老年大学品牌视觉指导手册板块 2" />
+      <img src="../image/LOGO2.jpg" alt="网上老年大学品牌视觉指导手册板块 2" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 3">
-      <img src="../image/LOGO3.png" alt="网上老年大学品牌视觉指导手册板块 3" />
+      <img src="../image/LOGO3.jpg" alt="网上老年大学品牌视觉指导手册板块 3" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 4">
-      <img src="../image/LOGO4.png" alt="网上老年大学品牌视觉指导手册板块 4" />
+      <img src="../image/LOGO4.jpg" alt="网上老年大学品牌视觉指导手册板块 4" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 5">
-      <img src="../image/LOGO5.png" alt="网上老年大学品牌视觉指导手册板块 5" />
+      <img src="../image/LOGO5.jpg" alt="网上老年大学品牌视觉指导手册板块 5" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 6">
-      <img src="../image/LOGO6.png" alt="网上老年大学品牌视觉指导手册板块 6" />
+      <img src="../image/LOGO6.jpg" alt="网上老年大学品牌视觉指导手册板块 6" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 7">
-      <img src="../image/LOGO7.png" alt="网上老年大学品牌视觉指导手册板块 7" />
+      <img src="../image/LOGO7.jpg" alt="网上老年大学品牌视觉指导手册板块 7" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 8">
-      <img src="../image/LOGO8.png" alt="网上老年大学品牌视觉指导手册板块 8" />
+      <img src="../image/LOGO8.jpg" alt="网上老年大学品牌视觉指导手册板块 8" />
     </section>
     <section class="case-section" aria-label="网上老年大学品牌视觉指导手册案例板块 9">
-      <img src="../image/LOGO9.png" alt="网上老年大学品牌视觉指导手册板块 9" />
+      <img src="../image/LOGO9.jpg" alt="网上老年大学品牌视觉指导手册板块 9" />
     </section>
   </main>
+  <script>
+    document.querySelector('[data-back-link]').addEventListener('click', event => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
 </body>
 </html>

@@ -244,6 +244,33 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// WeChat QR click popover
+const wechatCard = document.querySelector('.wechat-card');
+const wechatPopover = document.querySelector('.wechat-popover');
+if (wechatCard && wechatPopover) {
+  function setWechatOpen(isOpen) {
+    wechatCard.classList.toggle('is-open', isOpen);
+    wechatCard.setAttribute('aria-expanded', String(isOpen));
+    wechatPopover.setAttribute('aria-hidden', String(!isOpen));
+  }
+
+  wechatCard.addEventListener('click', () => {
+    setWechatOpen(!wechatCard.classList.contains('is-open'));
+  });
+
+  wechatCard.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setWechatOpen(!wechatCard.classList.contains('is-open'));
+    }
+    if (event.key === 'Escape') setWechatOpen(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!wechatCard.contains(event.target)) setWechatOpen(false);
+  });
+}
+
 // Smooth scroll offset for fixed nav
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
