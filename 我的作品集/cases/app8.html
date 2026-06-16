@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网上老年大学 · 核心洞察报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'su-orange': '#E66A40',
+                        'su-yellow': '#F2A93B',
+                        'su-green': '#4A7C59',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html,
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAFA; color: #1A1A1A; overflow: hidden; }
+        .grid-bg { background-image: radial-gradient(#E5E7EB 1px, transparent 1px); background-size: 24px 24px; }
+        .step-card { transition: all 0.3s ease; }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        
+        /* 情绪板卡片背景纹理 */
+        .pattern-dots { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 16px 16px; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen py-16 overflow-x-hidden">
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <!-- ==================== 设计原则与情绪板 ==================== -->
+        <div>
+            <!-- 模块头部 -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
+                <div>
+                    <span class="inline-block text-su-orange font-bold tracking-widest text-xs uppercase mb-4">Visual Identity</span>
+                    <h2 class="text-4xl font-black text-zinc-900">设计原则与情绪板</h2>
+                </div>
+                <div class="md:text-right max-w-sm">
+                    <p class="text-zinc-500 font-medium text-sm leading-relaxed">
+                        从“数字适老”与“温情陪伴”的双重诉求出发，构建兼具安全感与亲和力的适老化视觉语言体系。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 设计原则 3张卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <!-- 原则 1 -->
+                <div class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:border-su-orange/30 transition-colors">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white to-orange-50/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="pattern-dots absolute inset-0 opacity-[0.03]"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-eye text-su-orange text-xl"></i>
+                            <h3 class="text-xl font-bold text-zinc-800">Clarity 清晰无碍</h3>
+                        </div>
+                        <p class="text-sm text-zinc-500 leading-relaxed flex-1">针对视力衰退痛点，通过超高对比度色彩与物理化的大字号卡片布局，彻底消除长辈的数字认知摩擦。</p>
+                        <div class="w-10 h-1.5 rounded-full bg-su-orange mt-6"></div>
+                    </div>
+                </div>
+
+                <!-- 原则 2 -->
+                <div class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:border-su-yellow/30 transition-colors">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white to-amber-50/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="pattern-dots absolute inset-0 opacity-[0.03]"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-sun text-su-yellow text-xl"></i>
+                            <h3 class="text-xl font-bold text-zinc-800">Warmth 温情陪伴</h3>
+                        </div>
+                        <p class="text-sm text-zinc-500 leading-relaxed flex-1">抛弃传统APP的科技冷硬感，融入暖阳色调与“软糖微拟物”3D元素，营造出如线下班级般热闹的社区氛围。</p>
+                        <div class="w-10 h-1.5 rounded-full bg-su-yellow mt-6"></div>
+                    </div>
+                </div>
+
+                <!-- 原则 3 -->
+                <div class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:border-su-green/30 transition-colors">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white to-emerald-50/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="pattern-dots absolute inset-0 opacity-[0.03]"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-shield-check text-su-green text-xl"></i>
+                            <h3 class="text-xl font-bold text-zinc-800">Trust 权威信赖</h3>
+                        </div>
+                        <p class="text-sm text-zinc-500 leading-relaxed flex-1">针对“害怕被骗”的心理防御机制，全局采用稳重的绿盾视觉符号强化官方属性，传递极强的平台安全感。</p>
+                        <div class="w-10 h-1.5 rounded-full bg-su-green mt-6"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 情绪板图库与色彩规范拼图 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- 左侧大图：使用充满活力的中老年场景 -->
+                <div class="lg:col-span-5 h-[300px] lg:h-auto rounded-[2rem] overflow-hidden relative shadow-md">
+                    <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seniors learning and smiling" class="w-full h-full object-cover">
+                    <!-- 渐变遮罩 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <p class="text-white/80 text-xs font-bold uppercase tracking-widest mb-1">Inspiration 01</p>
+                        <p class="text-white font-bold text-lg">活力 · 热爱 · 终身学习</p>
+                    </div>
+                </div>
+
+                <!-- 中间：质感与辅助图 -->
+                <div class="lg:col-span-3 flex flex-col gap-6">
+                    <div class="flex-1 rounded-[2rem] overflow-hidden relative shadow-md bg-gradient-to-br from-orange-100 to-rose-200 p-6 flex flex-col justify-end min-h-[200px]">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="3D Clay Texture" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60">
+                        <div class="relative z-10">
+                            <p class="text-zinc-800/60 text-[10px] font-bold uppercase tracking-widest mb-1">Inspiration 02</p>
+                            <p class="text-zinc-900 font-bold text-base">Claymorphism 软糖质感</p>
+                        </div>
+                    </div>
+                    <div class="h-[160px] rounded-[2rem] overflow-hidden relative shadow-md">
+                        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Warmth sunset" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-bold text-sm">温情暖阳</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：色彩体系与字体规范 -->
+                <div class="lg:col-span-4 flex flex-col gap-6">
+                    
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-palette text-su-orange text-sm"></i>
+                            <h4 class="font-bold text-zinc-800 text-sm">Color System 色彩体系</h4>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <!-- 丹霞橙 -->
+                            <div class="bg-su-orange rounded-2xl p-4 text-white relative overflow-hidden shadow-md">
+                                <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-white/20 rounded-full blur-md"></div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider opacity-80 border border-white/30 px-2 py-0.5 rounded-full mb-4 inline-block">Primary</span>
+                                <h5 class="font-bold text-lg mb-0.5">丹霞橙</h5>
+                                <p class="text-xs font-mono opacity-90">#E66A40</p>
+                            </div>
+                            
+                            <div class="flex flex-col gap-3">
+                                <!-- 麦穗黄 -->
+                                <div class="flex-1 bg-su-yellow rounded-2xl p-3 text-white shadow-md relative overflow-hidden">
+                                    <span class="absolute top-3 right-3 text-[8px] uppercase font-bold border border-white/30 px-1.5 py-0.5 rounded-full">Warm</span>
+                                    <h5 class="font-bold text-sm mt-3">麦穗黄</h5>
+                                    <p class="text-[10px] font-mono opacity-90">#F2A93B</p>
+                                </div>
+                                <!-- 松柏绿 -->
+                                <div class="flex-1 bg-su-green rounded-2xl p-3 text-white shadow-md relative overflow-hidden">
+                                    <span class="absolute top-3 right-3 text-[8px] uppercase font-bold border border-white/30 px-1.5 py-0.5 rounded-full">Safety</span>
+                                    <h5 class="font-bold text-sm mt-3">松柏绿</h5>
+                                    <p class="text-[10px] font-mono opacity-90">#4A7C59</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-[2rem] p-6 border border-zinc-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fa-solid fa-font text-su-orange text-sm"></i>
+                            <h4 class="font-bold text-zinc-800 text-sm">Typography & Radius</h4>
+                        </div>
+                        <div class="border-b border-zinc-100 pb-3 mb-3 flex justify-between items-end">
+                            <h5 class="text-2xl font-black text-zinc-900 tracking-tight">适老字号体系</h5>
+                            <span class="text-[10px] text-zinc-400 font-mono bg-zinc-100 px-2 py-1 rounded">≥ 18pt / Noto Sans</span>
+                        </div>
+                        <p class="text-sm text-zinc-500 leading-relaxed font-medium">
+                            全面废弃细体字；控件与卡片统一采用 <strong class="text-zinc-800">24px</strong> 超大圆角，确保界面视觉“无锋芒”，传递极致的安全感与亲和力。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designer Portfolio — AI驱动的全链路设计师</title>
+  <meta name="description" content="8年经验 · AI驱动的全链路设计师 & 开发者 · 赋能产品从研究到落地" />
+  <style>
+    html {
+      background: #050506;
+    }
+    body.intro-loading {
+      margin: 0;
+      overflow: hidden;
+      background: #050506;
+    }
+    body.intro-loading > :not(.intro-loader) {
+      visibility: hidden;
+    }
+    .intro-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: #050506;
+    }
+    .intro-video {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center center;
+      background: #000;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="intro-loading">
+
+  <!-- Intro Loading Video -->
+  <div class="intro-loader" id="introLoader" aria-label="作品集加载过渡动画">
+    <video id="introVideo" class="intro-video" autoplay muted playsinline preload="auto">
+      <source src="image/f_ccfc_f_c_a_e_a_ca_da_a_mp_.mp4" type="video/mp4" />
+    </video>
+    <button class="intro-sound-toggle" id="introSoundToggle" type="button" aria-label="开启开屏声音">
+      开启声音
+    </button>
+    <div class="intro-watermark-cover" aria-hidden="true"></div>
+  </div>
+
+  <audio id="entrySound" class="entry-sound" preload="auto" aria-hidden="true">
+    <source src="video/entry-sound.mp4" type="video/mp4" />
+  </audio>
+
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">AI Designer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#works">查看作品</a></li>
+        <li><a href="#aigc">AIGC</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact-methods">Contact</a></li>
+      </ul>
+      <a href="#contact-methods" class="nav-cta">联系我 →</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-image-card reveal">
+        <video class="hero-cover hero-cover-video" autoplay muted loop playsinline preload="auto" poster="image/作品集封面.png" aria-label="AI驱动的全链路设计师与开发者作品集动态封面">
+          <source src="image/作品集封面.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-watermark-cover" aria-hidden="true"></div>
+        <div class="hero-opportunity-panel" aria-label="个人经验与项目数据">
+          <p class="hero-opportunity-label">Available for new opportunities</p>
+          <div class="hero-opportunity-rule" aria-hidden="true"></div>
+          <dl class="hero-opportunity-stats">
+            <div>
+              <dt>8<span>+</span></dt>
+              <dd>年经验</dd>
+            </div>
+            <div>
+              <dt>30<span>+</span></dt>
+              <dd>完整项目</dd>
+            </div>
+            <div>
+              <dt>10<span>+</span></dt>
+              <dd>领域闭环</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-copy-overlay" aria-label="首屏介绍文案">
+          <h1 class="hero-cover-title">
+            <span class="hero-cover-title-accent">AI</span>驱动的全链路设计师 &amp; 开发者
+          </h1>
+          <p class="hero-cover-subtitle">
+            <span>8年经验 · 精通 UX/UI 与视觉设计 · 利用 AIGC 赋能产品</span>
+            <span>独立完成从用户研究到前端开发的完整闭环</span>
+          </p>
+        </div>
+        <div class="hero-live-actions" aria-label="首屏主要操作">
+          <a href="#works" class="hero-live-btn hero-live-btn-primary">
+            查看作品
+            <span class="hero-live-btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="about-profile reveal">
+      <img src="image/个人介绍.jpg" alt="个人介绍" class="about-profile-image" />
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section id="works" class="section works">
+    <div class="container">
+      <!-- Project 1 -->
+      <article class="work-item reveal" data-project="project-1">
+        <a class="work-visual work-visual-link" href="cases/senior-edu.html" style="--accent: #E66A40" aria-label="查看网上老年大学案例详情">
+          <img src="image/图层-4.jpg" alt="网上老年大学 APP 首页展示" class="work-image" />
+        </a>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="tag">适老化设计</span>
+            <span class="tag">品牌全案</span>
+            <span class="tag">数据可视化</span>
+          </div>
+          <h3 class="work-title">网上老年大学APP</h3>
+          <p class="work-summary">网上老年大学 APP，通过适老化体验重构与 AIGC 技术赋能，建立了差异化的内容社交生态，解决了中老年人精神寄托与自我提升的核心需求。</p>
+          <ul class="work-highlights">
+            <li><strong>S</strong> · 银发用户线上学习痛点显著,体验门槛高</li>
+            <li><strong>T</strong> · 构建端到端体验,沉淀可复用品牌资产</li>
+            <li><strong>A</strong> · 适老化规范 + 日落橙 #E66A40 品牌体系 + IP 形象「丹宝」</li>
+            <li><strong>R</strong> · 首月留存提升 42%,品牌认知度显著提升</li>
+          </ul>
+          <a class="work-link" href="cases/senior-edu.html">
+            查看案例详情
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="work-item reveal reverse" data-project="project-2">
+        <a class="work-visual work-visual-link" href="cases/AI1.html" style="--accent: #6366F1" aria-label="查看 AI 智能客服 SaaS 系统案例详情">
+          <img src="image/AI智能客服-SaaS-系统.jpg" alt="AI 智能客服 SaaS 系统" class="work-image" />
+        </a>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="tag">B端 SaaS</span>
+            <span class="tag">AI 工作流</span>
+            <span class="tag">设计系统</span>
+          </div>
+          <h3 class="work-title">AI 智能客服 SaaS 系统</h3>
+          <p class="work-summary">面向中大型企业的 AI 客服平台,设计涵盖坐席工作台、知识库管理、AI 训练中心、数据分析等核心模块,构建严谨的中台设计语言。</p>
+          <ul class="work-highlights">
+            <li><strong>S</strong> · 客服行业人力成本高,AI 介入流程复杂</li>
+            <li><strong>T</strong> · 设计人机协同工作流,降低坐席培训成本</li>
+            <li><strong>A</strong> · 全局流程图 + 80+ 组件规范 + AI 训练可视化</li>
+            <li><strong>R</strong> · 坐席效率 +60%,客户首次解决率 +35%</li>
+          </ul>
+          <a class="work-link" href="cases/AI1.html">
+            查看案例详情
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="work-item reveal" data-project="project-3">
+        <a class="work-visual work-visual-link" href="cases/jinling-cloud.html" style="--accent: #2A72FF" aria-label="查看金龄云管理后台B端案例详情">
+          <img src="image/金龄云封面-.jpg" alt="金龄云管理后台B端" class="work-image work-image-top" />
+        </a>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="tag">B端管理后台</span>
+            <span class="tag">教育运营</span>
+            <span class="tag">数据分析</span>
+          </div>
+          <h3 class="work-title">金龄云管理后台B端</h3>
+          <p class="work-summary">面向老年大学的数字化运营与教学管理系统，覆盖校务管理、教务教学、学员服务、活动运营云课堂、财务与系统管理，打造高效、清晰、可持续的银龄教育数字化平台。</p>
+          <ul class="work-highlights">
+            <li><strong>S</strong> · 平台运营角色多、业务数据分散，管理链路复杂</li>
+            <li><strong>T</strong> · 搭建统一后台工作台，支撑课程、学员、订单与内容协同管理</li>
+            <li><strong>A</strong> · 模块化信息架构 + 数据看板 + 角色权限与流程闭环</li>
+            <li><strong>R</strong> · 降低人工统计成本，提升运营处理效率与决策响应速度</li>
+          </ul>
+          <a class="work-link" href="cases/jinling-cloud.html">
+            查看案例详情
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AIGC Section -->
+  <section id="aigc" class="section aigc">
+    <div class="container">
+      <div class="aigc-project-grid">
+        <a class="aigc-project-card reveal" href="cases/aigc-exploration.html" aria-label="查看 AIGC 探索与应用落地案例详情">
+          <div class="aigc-card-visual aigc-card-visual-video">
+            <video src="image/AIGC封面.mp4" poster="image/AIGC封面.png" aria-label="AIGC 探索与应用落地封面动效" autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+          <div class="aigc-card-body">
+            <span class="aigc-card-kicker">CORE PROJECT 06</span>
+            <h3>AIGC 探索与应用落地</h3>
+            <p>将 AI 作为核心生产力工具。涵盖 AI 绘画、App 行业深度研究报告、3DIP 角色建模贴图辅助生成，以及使用 AI 代码模型独立部署和开发实际项目应用。</p>
+          </div>
+        </a>
+
+        <a class="aigc-project-card reveal" href="cases/ai-data-dashboard.html">
+          <div class="aigc-card-visual">
+            <img src="image/AI数据封面图-1.jpg" alt="AI智能客服数据大屏展示" />
+          </div>
+          <div class="aigc-card-body">
+            <span class="aigc-card-kicker">CORE PROJECT 04</span>
+            <h3>AI智能客服数据大屏</h3>
+            <p>通过可视化数据大屏，全面呈现 AI 智能客服 Saas 系统的核心运营数据，覆盖咨询接入、AI 自动解决、人工协同、工单闭环、客户转化与运营分析等关键指标，帮助企业实时洞察服务效率与增长表现，让客户服务真正成为增长引擎。</p>
+          </div>
+        </a>
+
+        <a class="aigc-project-card reveal" href="cases/data-dashboard.html">
+          <div class="aigc-card-visual">
+            <img src="image/数据大屏封面.jpg" alt="网上老年大学数据大屏展示" />
+          </div>
+          <div class="aigc-card-body">
+            <span class="aigc-card-kicker">CORE PROJECT 03</span>
+            <h3>网上老年大学数据大屏</h3>
+            <p>通过可视化数据大屏,全面呈现网上老年大学的学习动态、课程资源、学员画像、互动交流等核心数据,助力管理者科学决策,优化教学服务,提升学员学习体验,让每一位银龄学员都能享受智慧学习的乐趣。</p>
+          </div>
+        </a>
+
+        <a class="aigc-project-card reveal" href="cases/ip-visual.html">
+          <div class="aigc-card-visual">
+            <img src="image/LOGO封面.jpg" alt="IP 形象与场景延展展示" />
+          </div>
+          <div class="aigc-card-body">
+            <span class="aigc-card-kicker">CORE PROJECT 05</span>
+            <h3>网上老年大学品牌视觉指导手册</h3>
+            <p>网上老年大学标志包括「星光书卷」图形标志和「网上老年大学」中文行楷字体两部分，是我们品牌的核心视觉符号。无论图形或文字，都能被用户清晰识别，传递出「温暖」、「求知」与「陪伴」的品牌第一印象。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <a class="past-works-banner reveal" href="https://www.zcool.com.cn/u/17727030" target="_blank" rel="noopener noreferrer" aria-label="查看更多精选往期作品">
+        <img src="image/查看往期作品..jpg" alt="更多精选往期作品" />
+      </a>
+
+      <div class="section-header reveal">
+        <h2 class="section-title">Skills & Workflow</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-block reveal">
+          <div class="skill-head">
+            <div class="skill-icon-3d" style="--c1:#FF6B6B;--c2:#FFA07A"></div>
+            <div>
+              <span class="skill-index">01 · PRODUCT</span>
+              <h3>产品 / 用研</h3>
+            </div>
+          </div>
+          <ul>
+            <li>用户研究 & 深度访谈</li>
+            <li>用户画像构建</li>
+            <li>竞品分析</li>
+            <li>行业趋势报告</li>
+            <li>需求文档 (PRD)</li>
+            <li>信息架构设计</li>
+          </ul>
+        </div>
+
+        <div class="skill-block reveal">
+          <div class="skill-head">
+            <div class="skill-icon-3d" style="--c1:#667EEA;--c2:#764BA2"></div>
+            <div>
+              <span class="skill-index">02 · DESIGN</span>
+              <h3>设计</h3>
+            </div>
+          </div>
+          <ul>
+            <li>UI / UX 设计</li>
+            <li>交互原型设计</li>
+            <li>品牌视觉系统</li>
+            <li>数字高定视觉风格</li>
+            <li>数据可视化设计</li>
+            <li>组件化设计系统</li>
+          </ul>
+        </div>
+
+        <div class="skill-block reveal">
+          <div class="skill-head">
+            <div class="skill-icon-3d" style="--c1:#4FACFE;--c2:#00F2FE"></div>
+            <div>
+              <span class="skill-index">03 · DEVELOPMENT</span>
+              <h3>开发 / AI 工具</h3>
+            </div>
+          </div>
+          <ul>
+            <li>HTML / CSS / JavaScript</li>
+            <li>Claude Code CLI</li>
+            <li>Midjourney / Runway</li>
+            <li>AI 3D 资产生成</li>
+            <li>前端独立部署</li>
+            <li>AI 提效工作流设计</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+      <div class="container">
+        <div class="ai-workflow reveal">
+          <div class="ai-workflow-head">
+            <h3>AI 赋能工作流</h3>
+          </div>
+          <div class="ai-workflow-steps">
+            <div class="ai-workflow-step">
+              <div class="ai-step-icon">🔍</div>
+              <h4>用户研究</h4>
+              <p>AI 辅助访谈分析、用户画像生成、行业报告撰写</p>
+            </div>
+            <div class="ai-workflow-step">
+              <div class="ai-step-icon">🧩</div>
+              <h4>产品定义</h4>
+              <p>信息架构、PRD 文档、功能优先级决策</p>
+            </div>
+            <div class="ai-workflow-step">
+              <div class="ai-step-icon">✦</div>
+              <h4>视觉设计</h4>
+              <p>AI 辅助生成品牌资产、3D IP、UI 组件库</p>
+            </div>
+            <div class="ai-workflow-step">
+              <div class="ai-step-icon">⚡</div>
+              <h4>工程实现</h4>
+              <p>Claude Code CLI 辅助前端开发与代码落地</p>
+            </div>
+            <div class="ai-workflow-step">
+              <div class="ai-step-icon">🚀</div>
+              <h4>迭代交付</h4>
+              <p>数据驱动迭代，AI 加速全链路交付周期</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-inner reveal" id="contact-main">
+          <div class="contact-hero">
+            <div class="contact-hero-copy">
+              <h2 class="contact-title">
+                <span class="contact-title-kicker">Thanks For Your</span>
+                <span class="contact-title-main" data-text="Watching">Watching</span>
+              </h2>
+              <p class="contact-hero-desc">期待加入您的团队·共同创造极致的产品体验</p>
+            </div>
+            <div class="contact-hero-visual" aria-hidden="true">
+              <img class="contact-ip" src="image/尾部.jpg" alt="" />
+            </div>
+            <div class="contact-side-rail" aria-hidden="true">
+              <span>DESIGN BY 2026</span>
+            </div>
+            <div class="contact-bottom-line" aria-hidden="true">
+              <span>THANK YOU</span>
+              <i></i>
+              <span>SEE YOU</span>
+            </div>
+            <div class="contact-corner-dots" aria-hidden="true"></div>
+          </div>
+
+          <div class="contact-methods" id="contact-methods">
+            <a href="mailto:1223467528@qq.com" class="contact-card">
+              <span class="cc-label">Email</span>
+              <span class="cc-value">1223467528@qq.com</span>
+            </a>
+            <div class="contact-card wechat-card" tabindex="0" role="button" aria-label="显示微信二维码" aria-expanded="false">
+              <span class="cc-label">WeChat</span>
+              <span class="cc-value">Huanghuanh666</span>
+              <div class="wechat-popover" aria-hidden="true">
+                <img src="image/WECHAT.jpg" alt="微信二维码，扫码添加好友" />
+              </div>
+            </div>
+            <a href="tel:14718158833" class="contact-card">
+              <span class="cc-label">MOBILE PHONE NUMBER</span>
+              <span class="cc-value">/name 14718158833</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 Designer Portfolio. Crafted with care.</p>
+        <p>Designed & Built by Me — 100% Handcoded.</p>
+      </div>
+    </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

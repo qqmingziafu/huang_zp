@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品信息架构 - 网上老年大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8F9FB',       /* 极浅灰蓝背景 */
+                            primary: '#3B82F6',  /* 品牌蓝 */
+                            dark: '#1E293B',     /* 标题深灰 */
+                            gray: '#64748B',     /* 描述灰 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html,
+        body {
+            background-color: #F8F9FB;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        /* 统一的卡片悬浮阴影增强 */
+        .hover-card-shadow {
+            transition: all 0.3s ease;
+        }
+        .hover-card-shadow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 隐藏滚动条 */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-6 md:p-12 text-slate-800">
+
+    <div class="max-w-[1280px] mx-auto overflow-hidden pb-16">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col md:flex-row md:items-end justify-between gap-6 p-10 pb-6 border-b border-slate-100">
+            <div>
+                <p class="text-[#E66A40] font-bold tracking-wider text-sm mb-2 uppercase">INFORMATION ARCHITECTURE</p>
+                <h1 class="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">产品信息架构</h1>
+            </div>
+            <div class="md:text-right">
+                <p class="text-brand-gray text-sm font-medium leading-relaxed">
+                    采用极致扁平化的层级设计，<br>
+                    确保长辈核心学习与社交链路在 2 次点击内触达。
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Tree Diagram Section -->
+        <div class="p-10 w-full overflow-x-auto hide-scrollbar">
+            <!-- 给一个最小宽度确保树状图不断行 -->
+            <div class="min-w-[1150px] relative mt-4">
+                
+                <!-- Root Node -->
+                <div class="flex justify-center relative z-20">
+                    <div class="bg-slate-900 text-white px-8 py-3.5 rounded-full font-bold shadow-lg shadow-slate-900/20 flex items-center gap-3">
+                        <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+                        <span class="tracking-wide">网上老年大学 APP 入口</span>
+                    </div>
+                </div>
+
+                <!-- Tree connecting lines -->
+                <div class="relative h-12 w-full z-10">
+                    <!-- Central vertical drop from root -->
+                    <div class="absolute left-1/2 top-0 bottom-1/2 w-[2px] bg-slate-200 -translate-x-1/2"></div>
+                    <!-- Horizontal branching line -->
+                    <div class="absolute top-1/2 left-[12.5%] right-[12.5%] h-[2px] bg-slate-200"></div>
+                    <!-- 4 vertical drops to cards -->
+                    <div class="absolute top-1/2 bottom-0 left-[12.5%] w-[2px] bg-slate-200 -translate-x-1/2"></div>
+                    <div class="absolute top-1/2 bottom-0 left-[37.5%] w-[2px] bg-slate-200 -translate-x-1/2"></div>
+                    <div class="absolute top-1/2 bottom-0 left-[62.5%] w-[2px] bg-slate-200 -translate-x-1/2"></div>
+                    <div class="absolute top-1/2 bottom-0 left-[87.5%] w-[2px] bg-slate-200 -translate-x-1/2"></div>
+                </div>
+
+                <!-- Level 1 Cards Grid -->
+                <div class="grid grid-cols-4 gap-6 relative z-20">
+                    
+                    <!-- Tab 1: 首页 (Home) -->
+                    <div class="bg-white rounded-2xl shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] border border-slate-100 hover-card-shadow flex flex-col overflow-hidden">
+                        <!-- Top Gradient Bar -->
+                        <div class="h-2 w-full bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-col items-center mb-6">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl mb-3 shadow-inner">
+                                    <i class="fa-solid fa-house"></i>
+                                </div>
+                                <h3 class="text-lg font-black text-slate-800">首 页</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-1">极简上课与防迷航探索</p>
+                            </div>
+                            <!-- Sub Items -->
+                            <div class="space-y-2.5 w-full">
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center justify-between font-medium">
+                                    搜索课程、AI小助手
+                                    <i class="fa-solid fa-star text-orange-400 text-xs"></i>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    课程报名、老年大学、新课推荐、更多服务
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    名师直播、热课推荐
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    精品录播
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: 上课 (Class) -->
+                    <div class="bg-white rounded-2xl shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] border border-slate-100 hover-card-shadow flex flex-col overflow-hidden">
+                        <!-- Top Gradient Bar -->
+                        <div class="h-2 w-full bg-gradient-to-r from-orange-400 to-orange-500"></div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-col items-center mb-6">
+                                <div class="w-12 h-12 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center text-xl mb-3 shadow-inner">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <h3 class="text-lg font-black text-slate-800">上 课</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-1">陪伴式社交与情绪价值反馈</p>
+                            </div>
+                            <!-- Sub Items -->
+                            <div class="space-y-2.5 w-full">
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    课堂作业、班群聊天、学习历史
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    精品课
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    免费课
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center justify-between font-medium">
+                                    搜索 、排序
+                                    <i class="fa-solid fa-star text-orange-400 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: 同学圈 (Community) -->
+                    <div class="bg-white rounded-2xl shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] border border-slate-100 hover-card-shadow flex flex-col overflow-hidden">
+                        <!-- Top Gradient Bar -->
+                        <div class="h-2 w-full bg-gradient-to-r from-purple-400 to-purple-500"></div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-col items-center mb-6">
+                                <div class="w-12 h-12 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center text-xl mb-3 shadow-inner">
+                                    <i class="fa-solid fa-camera-retro"></i>
+                                </div>
+                                <h3 class="text-lg font-black text-slate-800">同学圈</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-1">作品展示与互动交流</p>
+                            </div>
+                            <!-- Sub Items -->
+                            <div class="space-y-2.5 w-full">
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center justify-between font-medium">
+                                    关注、发圈子动态
+                                    <i class="fa-solid fa-star text-orange-400 text-xs"></i>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    推荐、热闹话题、发圈子动态、点赞/评论
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    话题、发话题动态
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    作业、全部作业、点赞/评论/分享
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: 我的 (Profile) -->
+                    <div class="bg-white rounded-2xl shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] border border-slate-100 hover-card-shadow flex flex-col overflow-hidden">
+                        <!-- Top Gradient Bar -->
+                        <div class="h-2 w-full bg-gradient-to-r from-green-400 to-green-500"></div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex flex-col items-center mb-6">
+                                <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl mb-3 shadow-inner">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <h3 class="text-lg font-black text-slate-800">我 的</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-1">荣誉外化与家庭生态联动</p>
+                            </div>
+                            <!-- Sub Items -->
+                            <div class="space-y-2.5 w-full">
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center justify-between font-medium">
+                                    关注、粉丝、获赞、签到、畅学卡
+                                    <i class="fa-solid fa-star text-orange-400 text-xs"></i>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    我的消息、看过我的、我的账号、我的订单
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    附近同学、招募讲师、我要评分
+                                </div>
+                                <div class="bg-slate-50 border border-slate-100 text-slate-700 text-sm py-3 px-4 rounded-xl flex items-center font-medium">
+                                    校长信箱、操作手册、个人设置
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Rationale Section -->
+        <div class="px-10 mt-12">
+            <h3 class="text-[17px] font-black text-slate-800 flex items-center gap-2 mb-8">
+                <i class="fa-regular fa-lightbulb text-yellow-500 text-xl"></i> 
+                核心架构策略 Design Rationale
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Strategy 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-blue-500 hover-card-shadow">
+                    <h4 class="font-bold text-blue-600 text-sm flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-layer-group"></i> 极致层级深度控制
+                    </h4>
+                    <p class="text-[13px] text-slate-600 leading-relaxed font-medium">
+                        核心功能（如看课、查记录、聊天沟通）严格控制在 <strong class="text-slate-800">2级页面</strong> 内。任何内页均悬浮“一键回首页”兜底，彻底消除老年人使用APP时“怕点错回不去”的数字恐惧感。
+                    </p>
+                </div>
+
+                <!-- Strategy 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-orange-500 hover-card-shadow">
+                    <h4 class="font-bold text-orange-600 text-sm flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-bolt"></i> 复杂业务后台折叠
+                    </h4>
+                    <p class="text-[13px] text-slate-600 leading-relaxed font-medium">
+                        将最容易导致长辈流失的复杂操作（如选课比价、绑定银行卡代付、设置上课闹钟等）全部通过链接转移至 <strong class="text-slate-800">子女端微信小程序</strong>，保障老人端APP的极致纯净。
+                    </p>
+                </div>
+
+                <!-- Strategy 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 border-l-4 border-l-green-500 hover-card-shadow">
+                    <h4 class="font-bold text-green-600 text-sm flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-seedling"></i> 情绪激励链路前置
+                    </h4>
+                    <p class="text-[13px] text-slate-600 leading-relaxed font-medium">
+                        在“班级”与“我的”模块中，显著前置了 <strong class="text-slate-800">作品云展厅与荣誉海报生成</strong> 节点。用充足的社交货币与正向反馈闭环，满足银发群体强烈的自我实现与炫耀诉求。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

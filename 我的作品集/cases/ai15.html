@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能客服SaaS系统 - 栅格布局规范</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            start: '#2967FF',
+                            end: '#30B9FF',
+                            light: '#EAF0FF',
+                        },
+                        text: {
+                            main: '#1F2937',
+                            desc: '#6B7280',
+                            muted: '#9CA3AF',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0,0,0,0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFC; }
+        .gradient-text {
+            background: linear-gradient(135deg, #2967FF 0%, #30B9FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* 左上角折角装饰 */
+        .corner-fold {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 16px 16px 0 0;
+            border-color: #2967FF transparent transparent transparent;
+        }
+        /* 隐藏滚动条 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* 标注线统一样式 */
+        .dimension-line {
+            position: absolute;
+            background-color: #2967FF;
+        }
+        .dimension-line-h { height: 1px; }
+        .dimension-line-v { width: 1px; }
+        /* 箭头绘制 */
+        .arrow-left::before { content: ''; position: absolute; left: 0; top: -3px; border-top: 3px solid transparent; border-bottom: 3px solid transparent; border-right: 5px solid #2967FF; }
+        .arrow-right::after { content: ''; position: absolute; right: 0; top: -3px; border-top: 3px solid transparent; border-bottom: 3px solid transparent; border-left: 5px solid #2967FF; }
+        .arrow-up::before { content: ''; position: absolute; top: 0; left: -3px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-bottom: 5px solid #2967FF; }
+        .arrow-down::after { content: ''; position: absolute; bottom: 0; left: -3px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 5px solid #2967FF; }
+    </style>
+</head>
+<body class="text-text-main font-sans overflow-hidden">
+
+    <div class="max-w-[1600px] w-full h-[900px] mx-auto flex relative bg-[#F4F7FB] border border-gray-100 shadow-2xl rounded-2xl overflow-hidden">
+        
+        <!-- 右上角水印 -->
+        <div class="absolute top-8 right-10 text-[11px] font-bold text-gray-400 tracking-widest uppercase">
+            UI / WEB / SAAS
+        </div>
+
+        <!-- ================= 左侧：文字规范说明区 ================= -->
+        <aside class="w-[420px] bg-[#F4F7FB] p-12 flex flex-col justify-center shrink-0 z-20 relative border-r border-gray-200/50">
+            
+            <!-- 标题区 -->
+            <div class="mb-12 relative">
+                <!-- 折角装饰 -->
+                <div class="absolute -left-6 top-2 corner-fold"></div>
+                <!-- 投影效果文字底座 -->
+                <div class="absolute -top-6 left-0 text-[64px] font-black text-gray-200/40 select-none pointer-events-none tracking-tighter">GRID</div>
+                
+                <h1 class="text-[42px] font-bold text-[#374151] mb-2 tracking-tight relative z-10">栅格布局</h1>
+                <p class="text-[12px] font-bold text-gray-400 tracking-widest uppercase relative z-10">Grid Layout Specification</p>
+            </div>
+
+            <!-- 参数列表 -->
+            <div class="space-y-4 mb-10 text-[16px] font-medium text-brand-start">
+                <div class="flex items-center gap-3">
+                    <span class="w-20 text-gray-500 font-normal">页面尺寸:</span> 
+                    <span>1440 * 900px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="w-20 text-gray-500 font-normal">侧边导航:</span> 
+                    <span>208px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="w-20 text-gray-500 font-normal">内容边距:</span> 
+                    <span>24px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="w-20 text-gray-500 font-normal">栅格设定:</span> 
+                    <span>24 列 / 水槽 16px</span>
+                </div>
+            </div>
+
+            <!-- 详细说明段落 -->
+            <div class="text-[14px] text-gray-500 leading-[2] text-justify">
+                <p class="mb-4">
+                    栅格系统是用于规范化 B 端工单系统信息布局，辅助设计与研发团队组织界面结构的底层工具。它能进一步保证设计与开发过程的规范高效，并提高全局视效的一致性、韵律性、秩序严谨及比例良好等方面。
+                </p>
+                <p>
+                    因为智能客服 SaaS 后台（如客服工作台、数据大盘、工单流转池）的数据量较大、业务模块多变，建立标准栅格系统，采用 <strong>24 栅格</strong>，可以最有效地兼顾各种组件的卡片宽度切分，使页面布局高度规范，降低用户的认知成本。
+                </p>
+            </div>
+            
+            <!-- 底部项目信息 -->
+            <div class="mt-auto pt-10 border-t border-gray-200 text-gray-400 text-xs">
+                AI智能客服系统 Design System v1.0
+            </div>
+        </aside>
+
+
+        <!-- ================= 右侧：栅格可视化展示区 ================= -->
+        <main class="flex-1 bg-white relative flex items-center justify-center p-12 overflow-hidden">
+            
+            <!-- 背景辅助网格线 (极淡的方格，增强工程感) -->
+            <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <!-- 模拟 1440x900 画布 (按比例缩放展示，例如缩放为原尺寸的 75%) -->
+            <div class="relative z-10 w-[1080px] h-[675px] bg-white border border-gray-200 shadow-sm flex">
+                
+                <!-- ====== 外部尺寸标注 ====== -->
+                
+                <!-- 顶部总宽 1440px 标注 -->
+                <div class="dimension-line dimension-line-h w-full top-[-24px] arrow-left arrow-right">
+                    <div class="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-2 text-[11px] text-gray-500 font-medium">1440px</div>
+                </div>
+                <!-- 左侧总高 900px 标注 -->
+                <div class="dimension-line dimension-line-v h-full left-[-24px] arrow-up arrow-down">
+                    <div class="absolute top-1/2 -translate-y-1/2 -left-10 bg-white px-1 text-[11px] text-gray-500 font-medium">900px</div>
+                </div>
+
+                <!-- ====== 内部区域划分 ====== -->
+                
+                <!-- 左侧边栏 (208px 按 0.75 缩放 = 156px) -->
+                <div class="w-[156px] h-full bg-[#EAF0FF]/60 border-r border-[#2967FF]/20 relative">
+                    <!-- 导航内部标注 -->
+                    <div class="dimension-line dimension-line-h w-full top-1/2 arrow-left arrow-right">
+                        <div class="absolute left-1/2 -translate-x-1/2 -top-2.5 bg-[#EAF0FF] px-1 text-[10px] text-brand-start font-medium leading-none">208px</div>
+                    </div>
+                </div>
+
+                <!-- 右侧主内容区 (包含 24 栅格) -->
+                <div class="flex-1 h-full relative px-[18px] bg-white border-t-[48px] border-[#EAF0FF]/60"> <!-- 顶部边距模拟 64px 顶栏 (64*0.75=48) -->
+                    
+                    <!-- 顶栏高度标注 -->
+                    <div class="absolute top-[-48px] right-[-30px] h-[48px] dimension-line dimension-line-v arrow-up arrow-down">
+                        <div class="absolute top-1/2 -translate-y-1/2 left-2 text-[10px] text-gray-500 font-medium">64px</div>
+                    </div>
+                    <!-- 边距标注 (右侧 24px) -->
+                    <div class="absolute right-0 top-0 h-full w-[18px] bg-brand-start/5"></div>
+                    <div class="absolute right-[-30px] top-[10px] w-[18px] dimension-line dimension-line-h arrow-left arrow-right" style="right: 0;">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] text-gray-500">24px</div>
+                    </div>
+
+                    <!-- CSS Grid: 24 列结构 -->
+                    <div class="w-full h-full grid grid-cols-24 gap-x-[12px] relative py-[18px]"> <!-- 16px水槽*0.75=12px; 24px上下边距*0.75=18px -->
+                        
+                        <!-- 背景 24 根浅蓝色栅格柱 -->
+                        <div class="absolute inset-0 py-[18px] px-[0px] grid grid-cols-24 gap-x-[12px] pointer-events-none z-0">
+                            <!-- 循环 24 次生成背景列 -->
+                            <div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div>
+                            <div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div>
+                            <div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div>
+                            <div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div><div class="bg-[#2967FF]/10 h-full"></div>
+                        </div>
+
+                        <!-- 顶部标注：水槽 16px -->
+                        <div class="absolute top-[2px] left-[calc(100%/24)] w-[12px] dimension-line dimension-line-h arrow-left arrow-right z-20">
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 whitespace-nowrap">16px</div>
+                        </div>
+
+                        <!-- 内部组合区块展示 (使用 col-span 模拟不同业务组件的占位) -->
+                        <div class="col-span-24 w-full h-[60px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm backdrop-blur-sm">
+                            24 Columns (大盘筛选/通栏列表)
+                        </div>
+
+                        <div class="col-span-12 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm mt-3 backdrop-blur-sm">
+                            12 Columns
+                        </div>
+                        <div class="col-span-12 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm mt-3 backdrop-blur-sm">
+                            12 Columns (左右分栏面板)
+                        </div>
+
+                        <div class="col-span-8 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm mt-3 backdrop-blur-sm">
+                            8 Columns
+                        </div>
+                        <div class="col-span-8 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm mt-3 backdrop-blur-sm">
+                            8 Columns (三列数据卡片)
+                        </div>
+                        <div class="col-span-8 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-xs shadow-sm mt-3 backdrop-blur-sm">
+                            8 Columns
+                        </div>
+
+                        <div class="col-span-6 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            6 Columns
+                        </div>
+                        <div class="col-span-6 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            6 Columns (四项核心指标)
+                        </div>
+                        <div class="col-span-6 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            6 Columns
+                        </div>
+                        <div class="col-span-6 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            6 Columns
+                        </div>
+
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+                        <div class="col-span-4 w-full h-[80px] bg-[#2967FF]/40 border border-white relative z-10 flex items-center justify-center text-white text-[10px] shadow-sm mt-3 backdrop-blur-sm">
+                            4 Col
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- 激活 Lucide 图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
